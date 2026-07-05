@@ -5,7 +5,7 @@ target: frontend-slides (zarazhangrui)
 repo: https://github.com/zarazhangrui/frontend-slides
 license: MIT
 star: ~24k（用户给的数，本仓库未含 star 数据，以 GitHub 为准）
-本地路径: /Users/qinbiaojuan/Documents/PPT开源参考/01b_待深看skill/frontend-slides
+本地路径: 01b_待深看skill/frontend-slides
 拆解日期: 2026-06-30
 拆解人: Claude (Opus 4.8)
 和我们的相似度: ★★★★★（同为 Claude Code skill 形态做 deck，最像的一个）

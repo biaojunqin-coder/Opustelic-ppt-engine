@@ -1,7 +1,7 @@
 # 开源拆解 · guizang-ppt-skill（歸藏 PPT Skill）
 
 > 日期：2026-06-30 · 方法：亲读 `ls -R` 全树 + README(中文) + SKILL.md + checklist.md + 校验脚本 + swiss-layout-lock.md + components.md + layouts.md + image-prompts.md（中文为主，保真带行号出处）。
-> 源仓库：https://github.com/op7418/guizang-ppt-skill （~18k★ · 作者 [歸藏 op7418]）· 本地：`/Users/qinbiaojuan/Documents/PPT开源参考/01b_待深看skill/guizang-ppt-skill`
+> 源仓库：https://github.com/op7418/guizang-ppt-skill （~18k★ · 作者 [歸藏 op7418]）· 本地：`01b_待深看skill/guizang-ppt-skill`
 > 一句话结论：**它把"Claude skill 怎么做 deck"工程化到了极致——但走的是 HTML 网页 PPT + 偏设计/分享场景，和我们"原生可编辑 PPTX + 咨询级高 stakes"是两条路。最值得偷的不是它的产物，是它的「纪律工程」：约束换稳定 + 可 grep 自检 + 纯静态校验门（零 LLM 打分）。**
 
 ---

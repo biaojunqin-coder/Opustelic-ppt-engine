@@ -1,6 +1,6 @@
 # plotlyPowerpoint 拆解笔记
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/05_图表库/plotlyPowerpoint`
+> 拆解对象：`05_图表库/plotlyPowerpoint`
 > 仓库：https://github.com/jonboone1/plotlyPowerpoint · 作者 Jon Boone（jonboone1）· **本地副本 setup.py 标 v1.2.17 / dist 最高 1.2.16 / PKG-INFO 1.2.16** · MIT · 末次提交 2022-11-22
 > 拆解日期：2026-06-30 · 拆解人：Claude（PPT Engine 研究层）
 > 方法：`ls` + README + `setup.py` / `requirements.txt` + **核心源码 `plotlyPowerpoint/core.py`（仅此一个文件，856 行）逐行精读**，结论均带行号出处，不掺常识推断；存疑处显式标注。

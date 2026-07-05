@@ -1,7 +1,7 @@
 # Tabler Icons 拆解笔记（08 素材库）
 
 > 轻拆（ls + 元数据，未逐个读 6146 个 SVG）。落点：制作层咨询级 deck 的图标素材源。
-> 源：`/Users/qinbiaojuan/Documents/PPT开源参考/08_素材库/tabler-icons`（本地已 clone，v3.44.0）
+> 源：`08_素材库/tabler-icons`（本地已 clone，v3.44.0）
 > 拆解日期：2026-06-30
 
 ---

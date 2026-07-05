@@ -1,6 +1,6 @@
 # plotly.js 拆解笔记
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/05_图表库/plotly.js`
+> 拆解对象：`05_图表库/plotly.js`
 > 仓库：https://github.com/plotly/plotly.js · ~17k★ · **本地副本 v3.6.0**（package.json:3）· MIT · Plotly Technologies Inc.
 > 拆解日期：2026-06-30 · 拆解人：Claude（PPT Engine 研究层）
 > 方法：grep + README + 源码精读（`src/traces/waterfall/*`、`src/traces/bar/*`）+ 官方 Python 文档联网核实，**JS 端结论带文件:行号、Python 端结论带链接，不掺常识推断**；存疑处显式标注。

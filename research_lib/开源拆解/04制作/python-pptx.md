@@ -1,6 +1,6 @@
 # python-pptx 拆解笔记
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/04_制作明珠/python-pptx`
+> 拆解对象：`04_制作明珠/python-pptx`
 > 仓库：https://github.com/scanny/python-pptx · ~3.4k★ · **v1.0.2（2024-08-07，`HISTORY.rst:6`）** · MIT（`LICENSE`，作者 Steve Canny）· 本机 git HEAD `278b47b`
 > 依赖极轻：仅 `lxml>=3.1.0` + `Pillow>=3.3.2`（`pyproject.toml`）；图表内嵌 Excel 另需 `xlsxwriter`（`src/pptx/chart/xlsx.py:8`）。requires-python `>=3.8`。
 > 拆解日期：2026-06-30 · 拆解人：Claude（PPT Engine 研究层）

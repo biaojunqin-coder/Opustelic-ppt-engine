@@ -1,7 +1,7 @@
 # 开源拆解 · slide-deck-ai（python-pptx 路线最易二开样本）
 
 > 拆解对象：`barun-saha/slide-deck-ai`（GitHub，361★）
-> 本机路径：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/slide-deck-ai`
+> 本机路径：`01_AI端到端应用/slide-deck-ai`
 > 拆解时所在版本：tag `v8.2.1`，HEAD `bbdb01e`（commit 日期 2026-06-20，仍在维护）
 > License：**MIT**（`Copyright (c) 2023 Barun Saha`）
 > 与 PPT Engine 的关系：**同路线**——制作层都走 python-pptx 原生（非 HTML 渲染、非 PPT COM 自动化）。这是该路线社区里最轻、最易读、最易二开的端到端样本。
@@ -171,7 +171,7 @@ PPT Engine 高 stakes 段不一定用得上，但**画法**可参考：
 ---
 
 ### 附：关键文件速查（本机绝对路径）
-- 拼装引擎（最该读）：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/slide-deck-ai/src/slidedeckai/helpers/pptx_helper.py`
+- 拼装引擎（最该读）：`01_AI端到端应用/slide-deck-ai/src/slidedeckai/helpers/pptx_helper.py`
 - 编排器：`.../src/slidedeckai/core.py`
 - prompt 模板（脊柱）：`.../src/slidedeckai/prompts/initial_template_v4_two_cols_img.txt`、`.../refinement_template_v4_two_cols_img.txt`
 - LiteLLM 封装：`.../src/slidedeckai/helpers/llm_helper.py`

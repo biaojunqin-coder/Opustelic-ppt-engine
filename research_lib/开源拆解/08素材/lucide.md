@@ -1,6 +1,6 @@
 # Lucide 拆解笔记（图标素材库）
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/08_素材库/lucide`
+> 拆解对象：`08_素材库/lucide`
 > 上游：https://github.com/lucide-icons/lucide · 官网 https://lucide.dev · **ISC License**（`LICENSE`，"Lucide Icons and Contributors"）· Feather 衍生子集另挂 MIT（`LICENSE` 后半，Cole Bemis）
 > 本机 SVG 实测 **1744 个**（`ls icons/*.svg | wc -l`）；README 自述"1600+"（`README.md:29`）——以实测为准。
 > 拆解日期：2026-06-30 · 拆解人：Claude（PPT Engine 研究层）· 轻拆（ls + 关键文件，非全源码精读）

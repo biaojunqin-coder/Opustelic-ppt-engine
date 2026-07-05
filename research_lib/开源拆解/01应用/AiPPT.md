@@ -5,7 +5,7 @@ target: 文多多 AiPPT (veasion / docmee 出品)
 repo: https://github.com/veasion/AiPPT
 license: GPL-3.0（强 copyleft·见⑤坑）
 star: ~1.9k（用户口径；本仓库不含 star 数据，以 GitHub 为准）
-本地路径: /Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/AiPPT
+本地路径: 01_AI端到端应用/AiPPT
 拆解日期: 2026-06-30
 拆解人: Claude (Opus 4.8)
 和我们的相似度: ★★☆☆☆（产物形态完全不同——它是「PPTX↔JSON 浏览器渲染引擎」，我们是「python-pptx 服务端造原生 deck」；但在"原生图表/原生形状的数据契约"这一层是同行，值得偷）

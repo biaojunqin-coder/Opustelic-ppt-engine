@@ -1,6 +1,6 @@
 # 拆解：ppt-master（AI 原生可编辑 PPTX）
 
-> 拆解时间：2026-06-30 · 拆解对象本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/ppt-master`
+> 拆解时间：2026-06-30 · 拆解对象本地路径：`01_AI端到端应用/ppt-master`
 > 资源地图定位：34.3k★ · 「灵感源 · 原生可编辑 PPTX · SVG→DrawingML · 跑在 agent 里 · 同我们形态」
 > 作者：Hugo He（金融背景 CPA/CPV/投资咨询工程师，自述「常年审改 deck，想要 AI 出的稿子在 PowerPoint 里还能改，而不是拍平成图」）· MIT · v2.11.0
 > 出处约定：本笔记每条结论都带文件名；凡未标出处的判断会显式写「（拆解者判断）」。

@@ -1,6 +1,6 @@
 # MinerU 深拆 — 文档预处理 / brief 输入解析层
 
-> 出处：本地 clone `/Users/qinbiaojuan/Documents/PPT开源参考/07_文档预处理/MinerU`
+> 出处：本地 clone `07_文档预处理/MinerU`
 > 版本 `mineru/version.py` = **3.4.0**；git HEAD `3e60291`（2026-06-18）；upstream `github.com/opendatalab/MinerU`（72k★，OpenDataLab/上海AI实验室）
 > 拆解口径：`ls -R` + README(中英) + 源码精读。下文每条结论都带文件出处，**未读到的不编**。
 

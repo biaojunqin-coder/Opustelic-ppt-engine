@@ -1,6 +1,6 @@
 # 开源拆解 · gpt-researcher（自主深度研究 agent）
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/06_调研agent/gpt-researcher`
+> 拆解对象：`06_调研agent/gpt-researcher`
 > 仓库：`github.com/assafelovic/gpt-researcher`（28k★ 级 · 作者 Assaf Elovic）
 > 拆解时仓库版本：`pyproject.toml` version = **0.14.7**；HEAD commit `18d4051`（2026-06-28，PR #1820「security/content-hardening」）
 > **保真说明**：本笔记结论全部来自源码/README，标了文件:行号或方法名；凡引申到「PPT Engine 怎么用」的地方明确标【落点·我的推断】，与原仓库事实分开。

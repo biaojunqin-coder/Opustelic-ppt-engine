@@ -1,7 +1,7 @@
 # 开源拆解 · presentation-ai（ALLWEONE® AI Presentation Generator · 2.9k★）
 
 > 日期：2026-06-30 · 方法：`ls -R` + 读 README/LICENSE + 亲读 outline/generate 两条 API 路由 + 编排中枢(PresentationGenerationManager) + 生成页(generate/[id]) + Outline 编辑器 + 后修 agent 图(LangGraph) + Compare 取舍组件。保真带文件行号出处，代码即真相，不靠 README 宣称掺料。
-> 仓库本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/presentation-ai` · 上游：[github.com/allweonedev/presentation-ai](https://github.com/allweonedev/presentation-ai) · Gamma.app 开源平替。
+> 仓库本地路径：`01_AI端到端应用/presentation-ai` · 上游：[github.com/allweonedev/presentation-ai](https://github.com/allweonedev/presentation-ai) · Gamma.app 开源平替。
 > **一句话最值得偷的**：**「生成」不是一个动作，是两道独立的、各自有按钮/各自有门的阶段**——大纲先出且完全可编辑（拖排/改字/增删/逐页指定版式），用户改完点同一个按钮才从「Generate Outline」翻成「Generate Presentation」进入出片；这套「大纲层先冻结、用户改完才喂下游」的两段式，正是我们策略层「每步拍板」的现成 UX 骨架。
 
 ---

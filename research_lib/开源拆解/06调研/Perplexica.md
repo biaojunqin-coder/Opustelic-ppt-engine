@@ -5,7 +5,7 @@ target: Perplexica（仓库内已改名 Vane，作者 ItzCrazyKns）
 repo: https://github.com/ItzCrazyKns/Perplexica （仓库当前自称 https://github.com/ItzCrazyKns/Vane）
 license: MIT
 star: ~35k（用户口径；本地仓库不含 star 数据，以 GitHub 为准）
-本地路径: /Users/qinbiaojuan/Documents/PPT开源参考/06_调研agent/Perplexica
+本地路径: 06_调研agent/Perplexica
 版本: package.json name=vane, version=1.12.2
 拆解日期: 2026-06-30
 拆解人: Claude (Opus 4.8)

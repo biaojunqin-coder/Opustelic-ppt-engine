@@ -1,7 +1,7 @@
 # 开源拆解 · LandPPT（AI 端到端 PPT 生成平台 · sligter/LandPPT · Apache-2.0）
 
 > 日期：2026-06-30 · 方法：`ls -R` + 读 README/README_EN/LICENSE + 亲读 SKILL.md+endpoints.md（自带自动化技能，最权威的工作流真相源）+ 核心服务源码（outline/slide/research/template/prompts/config）。保真带文件:行号出处，代码与 SKILL 即真相，不掺论文/营销宣称。
-> 仓库本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/LandPPT` · 上游：[github.com/sligter/LandPPT](https://github.com/sligter/LandPPT)。
+> 仓库本地路径：`01_AI端到端应用/LandPPT` · 上游：[github.com/sligter/LandPPT](https://github.com/sligter/LandPPT)。
 > **一句话最值得偷的**：它把工作流的"出关闸"做成**两道人工确认硬门 + 一道结构化页数自愈门**——大纲必须 `confirm-outline` 才放行、自由模板必须 `free-template/confirm` 才允许出页（没确认就调出页流会立刻 emit error），且页数不达标会自动扩/缩/强制对齐；这套「**人确认是闸、机器只在结构层自愈、内容质量不设闸**」的取舍边界，正是我们划"哪些环节该 fail-closed、闸放在哪"时最现成的对照样本。
 
 ---

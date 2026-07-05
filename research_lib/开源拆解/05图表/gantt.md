@@ -1,7 +1,7 @@
 # Frappe Gantt 拆解（甘特图怎么画 → 移植成 python-pptx 矩形拼）
 
 > 轻拆 · 源码级 · 2026-06-30
-> 仓库：`/Users/qinbiaojuan/Documents/PPT开源参考/05_图表库/gantt`（frappe/gantt · ~6k★ · MIT · 专做 Gantt）
+> 仓库：`05_图表库/gantt`（frappe/gantt · ~6k★ · MIT · 专做 Gantt）
 > 拆它的唯一目的：**PPT Engine 制作层要画咨询级 Gantt（python-pptx 原生没有），这库就是「任务条+时间轴+依赖箭头」的标准答案，把它的定位公式直接搬成矩形坐标。**
 > 出处全部精确到行（`文件:行`），公式可直接照抄。
 

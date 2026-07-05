@@ -1,6 +1,6 @@
 # presenton 深拆笔记
 
-> 出处：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/presenton`（本机克隆）
+> 出处：`01_AI端到端应用/presenton`（本机克隆）
 > 标签：8.6k★ · Apache-2.0 · 最成熟的自托管 AI PPT 应用 · 内置 MCP + REST API
 > 拆解视角：PPT Engine = 咨询级 deck（策略+制作两工作流 · python-pptx 原生可编辑 · fail-closed · 防假绿）。本笔记**保真带出处、不掺常识**，所有"它怎么做"均有源码行号。
 

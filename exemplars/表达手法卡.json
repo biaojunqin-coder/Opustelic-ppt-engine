@@ -1805,19 +1805,19 @@
     },
     {
       "version": 2,
-      "reviewer": "qinbiaojuan拍板D20方案·Claude造卡(全部真实demo可溯源)",
+      "reviewer": "维护者拍板D20方案·Claude造卡(全部真实demo可溯源)",
       "change": "D20 FR1.2 结构性文案槽位卡首批 15 张（新增 slot+anti_pattern 字段·六槽位：章间桥5/章小结2/诊断收束3/ask收尾1/落幕2/目录命名2·全部真样本例句带出处·D20语料调研15条例句成卡）",
       "card_count": 142
     },
     {
       "version": 3,
-      "reviewer": "qinbiaojuan拍板2026-07-03·Claude代执行",
+      "reviewer": "维护者拍板2026-07-03·Claude代执行",
       "change": "D23 飞轮内化：2025-07实测单结构性文案6张槽位卡（章小结×3/章间桥×2/内部复盘型ask×1·demo品牌匿名+数字脱敏）·6条标签噪音否决",
       "card_count": 148
     },
     {
       "version": 4,
-      "reviewer": "qinbiaojuan拍板2026-07-03·D24收集范围原则",
+      "reviewer": "维护者拍板2026-07-03·D24收集范围原则",
       "change": "D24撤回：6张D23入库卡demo全来自Engine自产deck——违反收集范围核心原则(不收自产内容·AI学AI自我强化污染·同直通档代拍不回灌偏好一个道理)",
       "card_count": 142
     }

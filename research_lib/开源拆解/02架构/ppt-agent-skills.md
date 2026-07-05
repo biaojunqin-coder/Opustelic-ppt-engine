@@ -4,7 +4,7 @@
 >
 > ⚠️ **[2026-07-01 勘误·D6 决策记录]**：本篇写的是"读了它的代码觉得设计精巧"，**不代表这些设计后来真的被移植进了 PPT Engine**——同日利用率审计核实：本篇④「对 PPT Engine 的落点」列的 5 条（状态机多agent/上下文隔离/像素级Visual QA/断点续跑/`svg2pptx.py`）**全部未落地**，详见价值评估结论（`research_lib/开源生态调研_两工作流资源地图.md` 对应条目的勘误注）。「哲学呼应」和「代码移植」是两件事，本篇的"目前最贴PPT Engine哲学"评价指前者，读者别误当成后者的证据。
 >
-> - 仓库：`https://github.com/sunbigfly/ppt-agent-skills`（本机：`/Users/qinbiaojuan/Documents/PPT开源参考/02_Agentic架构/ppt-agent-skills`）
+> - 仓库：`https://github.com/sunbigfly/ppt-agent-skills`（本机：`02_Agentic架构/ppt-agent-skills`）
 > - 版本：`SKILL.md` 自述 v4.1 / `WORKFLOW_VERSION = 2026.04.09-v4.1`（`scripts/workflow_versions.py`）；本机 git HEAD `13e3537`（2026-06-08）
 > - License：**MIT**（`LICENSE`，Copyright 2025 sunbigfly）——可放心借鉴/改写/搬代码
 > - 体量：105 个 .md + 15 个 .py，**无业务后端、无服务**，纯 Skill（`SKILL.md` 38KB 主控合同 + `references/` 知识源 + `scripts/` 黑盒工具）

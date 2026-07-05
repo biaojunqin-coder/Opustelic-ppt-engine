@@ -1,7 +1,7 @@
 # 开源拆解 · Auto-Slides（ICME2026 · Westlake AGI Lab）
 
 > 日期：2026-06-30 · 方法：`ls -R` + 读 README/LICENSE + 亲读 4 个 agent 实现 + main.py 编排 + tex_validator 闭环（保真·带文件行号出处·代码即真相，不靠论文宣称掺料）。
-> 仓库本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/02_Agentic架构/Auto-Slides` · 上游：[github.com/wzsyyh/Auto-Slides](https://github.com/wzsyyh/Auto-Slides) · arXiv 2509.11062。
+> 仓库本地路径：`02_Agentic架构/Auto-Slides` · 上游：[github.com/wzsyyh/Auto-Slides](https://github.com/wzsyyh/Auto-Slides) · arXiv 2509.11062。
 > **一句话最值得偷的**：把「质量校验」拆成**先用确定性正则把数字声明在原文里逐个核验（pre-validation），再把核验结果当"已验证白名单"喂给 LLM、明令它别再误报**——这套「程序先验证、LLM 不准推翻」的两层防假阳，正是我们「机检质量门别让 LLM 当唯一裁判」的现成范式。
 
 ---

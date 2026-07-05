@@ -1,6 +1,6 @@
 # PPTist 拆解笔记
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/PPTist`
+> 拆解对象：`01_AI端到端应用/PPTist`
 > 仓库：https://github.com/pipipi-pikachu/PPTist · 9.1k★ · v2.0.0 · AGPL-3.0
 > 拆解日期：2026-06-30 · 拆解人：Claude（PPT Engine 研究层）
 > 方法：`ls -R` + README_zh + doc/ + 关键源码精读，**结论均带出处行号，不掺常识推断**；存疑处显式标注。

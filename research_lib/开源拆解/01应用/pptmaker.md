@@ -1,7 +1,7 @@
 # 开源拆解 · pptmaker（jorben · 中文 · 资源地图称「明确 outline 步」）
 
 > 日期：2026-06-30 · 方法：`ls -R` + 读 README(中英)/AGENTS.md/LICENSE + 亲读 `lib/prompts.ts`(prompt 全文)、`lib/api.ts`(两模式两协议)、`app/api/plan|gen/route.ts`(中转端)、`lib/types.ts`、`lib/themes.ts`、`PlanningReviewStep.tsx`/`EditorStep.tsx`(人审与导出)、`lib/utils.ts`。保真·带文件行号出处·代码即真相，不靠 README 宣称掺料。
-> 仓库本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/01_AI端到端应用/pptmaker` · 上游：[github.com/jorben/pptmaker](https://github.com/jorben/pptmaker)。
+> 仓库本地路径：`01_AI端到端应用/pptmaker` · 上游：[github.com/jorben/pptmaker](https://github.com/jorben/pptmaker)。
 > **一句话最值得偷的**：它把整张幻灯片当**一张 AI 生图**来产（outline 只产「标题+要点+一段极详尽的 visualDescription 画面描述」，再逐页喂图像模型出 16:9 图），于是**「美术风格」被抽成一个可插拔的纯文本 prompt 槽**（`themes.ts` 11 套主题各一段 prompt 字符串）——这套「视觉风格 = 一段可替换的描述文本、与内容生成解耦」的拆法，是我们做制作工作流「换皮不换骨」时最干净的解耦范式。**但它也正因此踩了致命坑：产物是死图、文字不可编辑（见 §5 坑1），与我们咨询级 deck 的要求正相反——是反面教材。**
 
 ---

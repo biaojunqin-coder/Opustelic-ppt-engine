@@ -1,7 +1,7 @@
 # 开源拆解 · Awesome-PPT-Design-Skills（software-ai-life · 繁中友好 · 资源地图归在「08 素材库 / 聚合表」）
 
 > 日期：2026-06-30 · 方法（轻拆·保真带出处）：`ls -R` 全树 + 读 README.md（繁中，已含完整 Style Gallery / Repository Structure / PPT Master Workflow 章节）+ 完整精读 `futuristic-tech-editorial` 一支 skill 的全部 5 个文件（SKILL.md / style-system / slide-patterns / ppt-master-integration / qa-checklist + agents/openai.yaml + 封面 SVG 头部）+ 批量 grep 其余 5 支 skill 的页型清单与字数 + 查 git remote/log/LICENSE。代码即真相，不靠 README 宣称掺料。
-> 仓库本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/08_素材库/Awesome-PPT-Design-Skills` · 上游：[github.com/software-ai-life/Awesome-PPT-Design-Skills](https://github.com/software-ai-life/Awesome-PPT-Design-Skills) · 最近 commit 2026-04-28（README 微调）。
+> 仓库本地路径：`08_素材库/Awesome-PPT-Design-Skills` · 上游：[github.com/software-ai-life/Awesome-PPT-Design-Skills](https://github.com/software-ai-life/Awesome-PPT-Design-Skills) · 最近 commit 2026-04-28（README 微调）。
 > **一句话最值得偷的**：它把「一种美学风格」做成一支**自包含 skill 包**——`SKILL.md`(触发+硬约束) + `references/{style-system, slide-patterns, ppt-master-integration, qa-checklist}.md` 四件套，**6 支 skill 严格同构、只换风格内容**；这套「风格层 = 可插拔 skill 包、骨架固定」的封装范式，正是我们做制作工作流「换皮不换骨」最干净的目录级模板。**但它全是消费向编辑设计风（日系/黏土/手绘/精品），零咨询级图表（无 waterfall/Mekko/Gantt），且它的核心依赖 `ppt-master` 我们 40 项目里早已收录——所以本表对我们几乎无「新资源」增量，价值在「skill 封装结构」这一个范式点。**
 
 ---

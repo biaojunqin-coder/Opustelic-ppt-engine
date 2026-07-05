@@ -1,7 +1,7 @@
 # 开源拆解 · Talk-to-Your-Slides（TYS / pptagent）
 
 > 拆解人：Claude（research 代理）｜日期：2026-06-30
-> 仓库本地路径：`/Users/qinbiaojuan/Documents/PPT开源参考/02_Agentic架构/Talk-to-Your-Slides`
+> 仓库本地路径：`02_Agentic架构/Talk-to-Your-Slides`
 > 上游：https://github.com/KyuDan1/Talk-to-Your-Slides ｜论文：arXiv:2505.11604（"Talk to Your Slides: Language-Driven Agents for Efficient Slide Editing"，标 ACL）
 > **保真声明**：以下结论均出自本地源码 / README / notebook 的直接阅读，关键处标了文件:行号。凡论文宣称但代码未对上的，单独标注。
 

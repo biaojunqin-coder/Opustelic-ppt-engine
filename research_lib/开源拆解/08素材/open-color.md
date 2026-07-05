@@ -1,6 +1,6 @@
 # open-color 拆解 · UI 配色方案（配色「结构范本」候选）
 
-> 出处：`/Users/qinbiaojuan/Documents/PPT开源参考/08_素材库/open-color`（本地源码，v1.9.1；上游 `yeun/open-color`，GitHub ~5.6k★，作者 Jeong Heeyeun／韩国设计师）。License：**MIT**（`LICENSE`，2016 heeyeun，纯 MIT 无附加条款）。
+> 出处：`08_素材库/open-color`（本地源码，v1.9.1；上游 `yeun/open-color`，GitHub ~5.6k★，作者 Jeong Heeyeun／韩国设计师）。License：**MIT**（`LICENSE`，2016 heeyeun，纯 MIT 无附加条款）。
 > 拆解日期：2026-06-30。色值结论直接读自 `open-color.json`（真相源），均可复核。
 > 本目录第一份素材库笔记。最后一节做「能否当 PPT Engine 配色资产」的落点判断。
 

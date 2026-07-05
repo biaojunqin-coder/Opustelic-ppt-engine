@@ -1,6 +1,6 @@
 # docling 拆解 · 文档→结构化（brief 解析层候选）
 
-> 出处：`/Users/qinbiaojuan/Documents/PPT开源参考/07_文档预处理/docling`（本地源码，本仓库为 `docling-slim` v2.107.0；上游 `docling-project/docling`，62k★，IBM Research Zurich）。License：**MIT**（`LICENSE`，纯 MIT 无附加条款）。
+> 出处：`07_文档预处理/docling`（本地源码，本仓库为 `docling-slim` v2.107.0；上游 `docling-project/docling`，62k★，IBM Research Zurich）。License：**MIT**（`LICENSE`，纯 MIT 无附加条款）。
 > 拆解日期：2026-06-30。所有结论标了文件:行号，便于复核。
 > 与本目录 `MinerU` 是同一赛道（PDF/Office→结构化）的两个主选，最后一节做对比落点。
 

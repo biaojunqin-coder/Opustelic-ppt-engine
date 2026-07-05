@@ -5,7 +5,7 @@ target: Instrumenta Powerpoint Toolbar (iappyx)
 repo: https://github.com/iappyx/Instrumenta
 license: MIT
 star: ~400（用户口径，仓库本身不含 star 数据，以 GitHub 为准）
-本地路径: /Users/qinbiaojuan/Documents/PPT开源参考/04_制作明珠/Instrumenta
+本地路径: 04_制作明珠/Instrumenta
 版本: v1.71（git HEAD: ceb9d4b "Improved Mac compatibility and security improvements"）
 拆解日期: 2026-06-30
 拆解人: Claude (Opus 4.8)

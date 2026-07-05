@@ -1,6 +1,6 @@
 # Apache ECharts 轻拆 · waterfall「模拟」通法
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/05_图表库/echarts`（本地克隆）
+> 拆解对象：`05_图表库/echarts`（本地克隆）
 > 拆解日期：2026-06-30 · 维度：①定位 ②waterfall 模拟 ③Gantt/custom ④PPT Engine 落点 ⑤坑
 > 资源地图原判：waterfall「模拟」· Mekko ❌ · Gantt ~ —— **本次拆解全部印证**。
 

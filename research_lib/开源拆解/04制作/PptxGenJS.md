@@ -1,6 +1,6 @@
 # PptxGenJS 拆解笔记
 
-> 拆解对象：`/Users/qinbiaojuan/Documents/PPT开源参考/04_制作明珠/PptxGenJS`
+> 拆解对象：`04_制作明珠/PptxGenJS`
 > 仓库：https://github.com/gitbrent/PptxGenJS · ~5.8k★ · **本地副本 v4.0.1** · MIT · 作者 Brent Ely
 > 拆解日期：2026-06-30 · 拆解人：Claude（PPT Engine 研究层）
 > 方法：`ls -R` + README + CHANGELOG + 源码（src/*.ts，约 50 万字符）+ demos/modules 精读，**结论均带出处行号，不掺常识推断**；存疑处显式标注。
