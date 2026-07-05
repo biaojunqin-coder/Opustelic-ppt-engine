@@ -6,23 +6,6 @@ English | [中文](README.md)
 
 > **AI shouldn't just fill in a template — it should think the deck through.** PPT Engine splits "AI generates it in one shot" into three controllable stages — **strategy first, then a hard gate per slide, then a natively editable export** — built for consulting-grade / investor-grade decks with waterfall / Mekko / Gantt-style structured charts, numbers that must trace to a source, and zero tolerance for rasterized output.
 
-## Sound familiar?
-
-- You ask an AI to generate a deck, and get back a stack of rasterized images — you can't open PowerPoint and edit a single word or move a single box.
-- You let the AI make up its own numbers, and get asked "where does this figure come from" in the room — and you can't answer.
-- Structured charts like waterfalls, Gantt charts, or BCG matrices come out with bars that don't line up and shares that don't sum to 100% — it falls apart the moment anyone looks closely.
-- The AI dumps 40 slides in one shot, all in its own narrative logic — not the story you actually wanted to tell — and fixing it takes longer than writing it yourself.
-
-PPT Engine exists to fix exactly these problems: natively editable output, numbers that must have a traceable source, structured charts computed by code instead of AI eyeballing them, and a process that aligns with you slide by slide instead of dumping the whole thing at once.
-
-## Core highlights
-
-- **Natively editable, not a picture** — every element (text box, shape, chart) can be individually selected and edited in PowerPoint — color, text, position — not a flattened raster image.
-- **Structured charts computed by code, not eyeballed by AI** — waterfall bars must connect mathematically, Gantt bars must align to real dates, shares must sum to 100%. Geometry and data come from a deterministic engine, not a model improvising on the fly.
-- **A hard number-traceability gate** — every number that appears on a slide must trace back to a source; if it can't, it's blocked and reworked — not waved through because it's "probably fine."
-- **Aligns with you round by round, never batches** — from reading the brief to finalizing each slide, it checks in with you the whole way, instead of dumping a finished deck for you to comb through for errors.
-- **The chaideck self-growing flywheel** — continuously tears down real, finished decks to grow its methodology; the more it's used, the sharper the pattern library and phrasing library get — not a template frozen in time.
-
 ## Six demos, see for yourself
 
 Three scenarios × bilingual (CN/EN), fictional brands (no real client data). Download the `.pptx` and open it in PowerPoint — click any element and edit it. That's what "natively editable" actually means.
@@ -50,34 +33,22 @@ Three scenarios × bilingual (CN/EN), fictional brands (no real client data). Do
 </tr>
 </table>
 
-Every deck leans on the structured charts generic tools can't do well — 2×2 matrices and Gantt charts among them:
+## Sound familiar?
 
-<table>
-<tr>
-<td align="center" width="50%" valign="top">
-<img src="examples/02_enterprise_ai_roadmap/preview/matrix.png" alt="Core pain-point diagnosis 2x2 matrix" width="100%"/>
-<br/>
-<sub>2×2 positioning matrix — Yunshu Heavy Industries pain-point diagnosis</sub>
-</td>
-<td align="center" width="50%" valign="top">
-<img src="examples/03_hospitality_brand_launch/preview/gantt.png" alt="Execution roadmap Gantt chart" width="100%"/>
-<br/>
-<sub>Gantt chart — YINSHAN's 3-year store rollout cadence</sub>
-</td>
-</tr>
-</table>
+- You ask an AI to generate a deck, and get back a stack of rasterized images — you can't open PowerPoint and edit a single word or move a single box.
+- You let the AI make up its own numbers, and get asked "where does this figure come from" in the room — and you can't answer.
+- Structured charts like waterfalls, Gantt charts, or BCG matrices come out with bars that don't line up and shares that don't sum to 100% — it falls apart the moment anyone looks closely.
+- The AI dumps 40 slides in one shot, all in its own narrative logic — not the story you actually wanted to tell — and fixing it takes longer than writing it yourself.
 
-## Acknowledgment: iterating on top of ppt-master
+PPT Engine exists to fix exactly these problems: natively editable output, numbers that must have a traceable source, structured charts computed by code instead of AI eyeballing them, and a process that aligns with you slide by slide instead of dumping the whole thing at once.
 
-PPT Engine's production workflow didn't reinvent the wheel — it's built by referencing and iterating on [ppt-master](https://github.com/hugohe3/ppt-master) (34k★), the project that first proved "AI generates SVG → translate it into native DrawingML `.pptx`" at real-world scale. PPT Engine's production-layer SVG→pptx export engine is vendored directly from it (MIT, see [engine/ppt_master/LICENSE.ppt-master](engine/ppt_master/LICENSE.ppt-master)). Thank you to Hugo He and the ppt-master community for that work.
+## Core highlights
 
-ppt-master itself is positioned as a general-purpose aesthetic deck engine — 19 visual styles (magazine, data-journalism, Swiss grid, glassmorphism, Memphis…) — and it does "a deck that looks good" thoroughly well. PPT Engine builds on top of that engine and pushes further into a narrower, deeper direction: consulting-grade / investor-grade high-stakes decks. A few layers we added:
-
-1. **Deterministic chart geometry engine** — ppt-master's 71 chart templates already cover consulting-grade weapons like waterfall/Gantt/Mekko-precursor charts; we added a data-fidelity layer on top — bridges must mathematically close, shares must sum to 100%. Charts aren't eyeballed by AI, they're computed by code.
-2. **Hard number-traceability gate** — every number on every slide must trace back to a source, or it's hard-blocked. This sits on top of ppt-master's softer "diverge, don't invent facts" rule, adding a stricter, hard-enforced check.
-3. **Two-layer quality gate** — on top of ppt-master's existing SVG syntax-level checks (forbidden-element blocklist / spec_lock drift detection), we added a content-level layer (meta-narration / client-facing tone) — syntax *and* content, both fail-closed.
-4. **Five-stage guided alignment in the strategy workflow** — we extended ppt-master's "eight confirmations" human-in-the-loop UX skeleton into a full strategy workflow built for consulting narratives: issue tree / hypothesis tree (MECE), a storyline structure of claims + evidence, and three review quality gates.
-5. **chaideck self-growing flywheel** — continuously tears down real, finished decks into six asset libraries + blind-teardown evolution, so the methodology gets sharper the more it's used. This is a capability ppt-master doesn't have — one we grew on our own.
+- **Natively editable, not a picture** — every element (text box, shape, chart) can be individually selected and edited in PowerPoint — color, text, position — not a flattened raster image.
+- **Structured charts computed by code, not eyeballed by AI** — waterfall bars must connect mathematically, Gantt bars must align to real dates, shares must sum to 100%. Geometry and data come from a deterministic engine, not a model improvising on the fly.
+- **A hard number-traceability gate** — every number that appears on a slide must trace back to a source; if it can't, it's blocked and reworked — not waved through because it's "probably fine."
+- **Aligns with you round by round, never batches** — from reading the brief to finalizing each slide, it checks in with you the whole way, instead of dumping a finished deck for you to comb through for errors.
+- **The chaideck self-growing flywheel** — continuously tears down real, finished decks to grow its methodology; the more it's used, the sharper the pattern library and phrasing library get — not a template frozen in time.
 
 ## How the workflows actually work
 
@@ -202,6 +173,18 @@ python3 -m venv .venv
 ```
 
 The skills (SKILL.md files under `skills/`) are designed to be loaded by coding assistants that support Agent Skills.
+
+## Acknowledgment: iterating on top of ppt-master
+
+PPT Engine's production workflow didn't reinvent the wheel — it's built by referencing and iterating on [ppt-master](https://github.com/hugohe3/ppt-master) (34k★), the project that first proved "AI generates SVG → translate it into native DrawingML `.pptx`" at real-world scale. PPT Engine's production-layer SVG→pptx export engine is vendored directly from it (MIT, see [engine/ppt_master/LICENSE.ppt-master](engine/ppt_master/LICENSE.ppt-master)). Thank you to Hugo He and the ppt-master community for that work.
+
+ppt-master itself is positioned as a general-purpose aesthetic deck engine — 19 visual styles (magazine, data-journalism, Swiss grid, glassmorphism, Memphis…) — and it does "a deck that looks good" thoroughly well. PPT Engine builds on top of that engine and pushes further into a narrower, deeper direction: consulting-grade / investor-grade high-stakes decks. A few layers we added:
+
+1. **Deterministic chart geometry engine** — ppt-master's 71 chart templates already cover consulting-grade weapons like waterfall/Gantt/Mekko-precursor charts; we added a data-fidelity layer on top — bridges must mathematically close, shares must sum to 100%. Charts aren't eyeballed by AI, they're computed by code.
+2. **Hard number-traceability gate** — every number on every slide must trace back to a source, or it's hard-blocked. This sits on top of ppt-master's softer "diverge, don't invent facts" rule, adding a stricter, hard-enforced check.
+3. **Two-layer quality gate** — on top of ppt-master's existing SVG syntax-level checks (forbidden-element blocklist / spec_lock drift detection), we added a content-level layer (meta-narration / client-facing tone) — syntax *and* content, both fail-closed.
+4. **Five-stage guided alignment in the strategy workflow** — we extended ppt-master's "eight confirmations" human-in-the-loop UX skeleton into a full strategy workflow built for consulting narratives: issue tree / hypothesis tree (MECE), a storyline structure of claims + evidence, and three review quality gates.
+5. **chaideck self-growing flywheel** — continuously tears down real, finished decks into six asset libraries + blind-teardown evolution, so the methodology gets sharper the more it's used. This is a capability ppt-master doesn't have — one we grew on our own.
 
 ## Dependencies & License
 
