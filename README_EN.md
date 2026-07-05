@@ -6,24 +6,44 @@ English | [中文](README.md)
 
 > **AI shouldn't just fill in a template — it should think the deck through.** PPT Engine splits "AI generates it in one shot" into three controllable stages — **strategy first, then a hard gate per slide, then a natively editable export** — built for consulting-grade / investor-grade decks with waterfall / Mekko / Gantt-style structured charts, numbers that must trace to a source, and zero tolerance for rasterized output.
 
+## Sound familiar?
+
+- You ask an AI to generate a deck, and get back a stack of rasterized images — you can't open PowerPoint and edit a single word or move a single box.
+- You let the AI make up its own numbers, and get asked "where does this figure come from" in the room — and you can't answer.
+- Structured charts like waterfalls, Gantt charts, or BCG matrices come out with bars that don't line up and shares that don't sum to 100% — it falls apart the moment anyone looks closely.
+- The AI dumps 40 slides in one shot, all in its own narrative logic — not the story you actually wanted to tell — and fixing it takes longer than writing it yourself.
+
+PPT Engine exists to fix exactly these problems: natively editable output, numbers that must have a traceable source, structured charts computed by code instead of AI eyeballing them, and a process that aligns with you slide by slide instead of dumping the whole thing at once.
+
+## Core highlights
+
+- **Natively editable, not a picture** — every element (text box, shape, chart) can be individually selected and edited in PowerPoint — color, text, position — not a flattened raster image.
+- **Structured charts computed by code, not eyeballed by AI** — waterfall bars must connect mathematically, Gantt bars must align to real dates, shares must sum to 100%. Geometry and data come from a deterministic engine, not a model improvising on the fly.
+- **A hard number-traceability gate** — every number that appears on a slide must trace back to a source; if it can't, it's blocked and reworked — not waved through because it's "probably fine."
+- **Aligns with you round by round, never batches** — from reading the brief to finalizing each slide, it checks in with you the whole way, instead of dumping a finished deck for you to comb through for errors.
+- **The chaideck self-growing flywheel** — continuously tears down real, finished decks to grow its methodology; the more it's used, the sharper the pattern library and phrasing library get — not a template frozen in time.
+
 ## Six demos, see for yourself
 
 Three scenarios × bilingual (CN/EN), fictional brands (no real client data). Download the `.pptx` and open it in PowerPoint — click any element and edit it. That's what "natively editable" actually means.
 
 <table>
 <tr>
-<td align="center" width="33%">
-<a href="examples/01_fmcg_growth_strategy/"><img src="examples/01_fmcg_growth_strategy/preview/cover.png" alt="YuanQiJiang 2027 National Growth Strategy"/></a><br/>
+<td align="center" width="33%" valign="top">
+<a href="examples/01_fmcg_growth_strategy/"><img src="examples/01_fmcg_growth_strategy/preview/cover.png" alt="YuanQiJiang 2027 National Growth Strategy" width="100%"/></a>
+<br/>
 <sub><b>FMCG Growth Strategy</b> — YuanQiJiang 2027 National Growth Strategy · 39 slides<br/>
 <a href="examples/01_fmcg_growth_strategy/YuanQiJiang_2027_National_Growth_Strategy.pptx">Download EN</a> · <a href="examples/01_fmcg_growth_strategy/元气浆_2027全国化增长战略.pptx">下载中文版</a></sub>
 </td>
-<td align="center" width="33%">
-<a href="examples/02_enterprise_ai_roadmap/"><img src="examples/02_enterprise_ai_roadmap/preview/cover.png" alt="Yunshu Heavy Industries AI Transformation Roadmap 2027-2029"/></a><br/>
+<td align="center" width="33%" valign="top">
+<a href="examples/02_enterprise_ai_roadmap/"><img src="examples/02_enterprise_ai_roadmap/preview/cover.png" alt="Yunshu Heavy Industries AI Transformation Roadmap 2027-2029" width="100%"/></a>
+<br/>
 <sub><b>Industrial AI Transformation Roadmap</b> — Yunshu Heavy Industries 2027-2029 · 39 slides<br/>
 <a href="examples/02_enterprise_ai_roadmap/Yunshu_Heavy_Industries_AI_Transformation_Roadmap_2027-2029.pptx">Download EN</a> · <a href="examples/02_enterprise_ai_roadmap/云枢重工_AI转型路线图2027-2029.pptx">下载中文版</a></sub>
 </td>
-<td align="center" width="33%">
-<a href="examples/03_hospitality_brand_launch/"><img src="examples/03_hospitality_brand_launch/preview/cover.png" alt="YINSHAN Brand Launch and Operations Strategy"/></a><br/>
+<td align="center" width="33%" valign="top">
+<a href="examples/03_hospitality_brand_launch/"><img src="examples/03_hospitality_brand_launch/preview/cover.png" alt="YINSHAN Brand Launch and Operations Strategy" width="100%"/></a>
+<br/>
 <sub><b>Hospitality Brand Launch Strategy</b> — YINSHAN Brand Launch and Operations Strategy · 38 slides<br/>
 <a href="examples/03_hospitality_brand_launch/YINSHAN_Brand_Launch_and_Operations_Strategy.pptx">Download EN</a> · <a href="examples/03_hospitality_brand_launch/隐山_品牌启动与运营战略.pptx">下载中文版</a></sub>
 </td>
@@ -34,8 +54,16 @@ Every deck leans on the structured charts generic tools can't do well — 2×2 m
 
 <table>
 <tr>
-<td align="center" width="50%"><img src="examples/02_enterprise_ai_roadmap/preview/matrix.png" alt="Core pain-point diagnosis 2x2 matrix"/><br/><sub>2×2 positioning matrix — Yunshu Heavy Industries pain-point diagnosis</sub></td>
-<td align="center" width="50%"><img src="examples/03_hospitality_brand_launch/preview/gantt.png" alt="Execution roadmap Gantt chart"/><br/><sub>Gantt chart — YINSHAN's 3-year store rollout cadence</sub></td>
+<td align="center" width="50%" valign="top">
+<img src="examples/02_enterprise_ai_roadmap/preview/matrix.png" alt="Core pain-point diagnosis 2x2 matrix" width="100%"/>
+<br/>
+<sub>2×2 positioning matrix — Yunshu Heavy Industries pain-point diagnosis</sub>
+</td>
+<td align="center" width="50%" valign="top">
+<img src="examples/03_hospitality_brand_launch/preview/gantt.png" alt="Execution roadmap Gantt chart" width="100%"/>
+<br/>
+<sub>Gantt chart — YINSHAN's 3-year store rollout cadence</sub>
+</td>
 </tr>
 </table>
 

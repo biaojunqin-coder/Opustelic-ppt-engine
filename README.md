@@ -6,24 +6,44 @@
 
 > **AI 不是帮你填模板，是帮你把 deck 想清楚。** PPT Engine 把"AI 一次成稿"拆成三段可控流程——**策略先想清楚 → 逐页硬门验收 → 原生可编辑导出**——专攻 waterfall / Mekko / Gantt 这类结构化图表、数字必须溯源、绝不栅格化的**咨询级 / 投资人级**高 stakes deck。
 
+## 你是不是也遇到过
+
+- 找 AI 生成 PPT，出来是一张张栅格图，打开 PowerPoint 改不动一个字，也挪不动一个框；
+- 让 AI 自己"编"数据，汇报时被问一句"这个数字哪来的"，答不上来；
+- 瀑布图 / 甘特图 / 波士顿矩阵这类结构化图，AI 画出来的条形对不齐、占比加起来不是 100%，细看就穿帮；
+- 一次性甩出 40 页，通篇是 AI 自己的叙事逻辑，不是你想讲的那个故事，改起来比重写还累。
+
+PPT Engine 就是奔着这几件事去的——原生可编辑、数字必须有来源可查、结构化图表用代码算而不是让 AI"照猫画虎"、逐页跟你对齐而不是一次性甩全套。
+
+## 核心亮点
+
+- **原生可编辑，不是图片**：每个元素——文本框、形状、图表——在 PowerPoint 里都能单独点开改颜色改文字改位置，不是一张栅格图拍平了事。
+- **结构化图表用代码算，不靠 AI 目测**：waterfall 的柱子必须数学连接、甘特图的条位必须对齐日期、占比必须求和 = 100%，几何和数据由确定性引擎计算，不是让模型现场画。
+- **数字溯源硬门**：deck 上出现的每一个数字都要求能点回源头，查无来源直接拦下重做，不是"大概率没错"就放行。
+- **一轮一轮跟你对齐，不批处理**：从解读 brief 到逐页定稿，全程跟你确认，不会一次性甩出一整份让你自己去挑错。
+- **chaideck 自成长飞轮**：持续拆解真实成品 deck 入库进化方法论，用得越多，范本库 / 语感库越准，不是一套写死不变的模板。
+
 ## 六个 demo，看效果
 
 三个场景 × 中英双语，虚构品牌（不涉及真实客户），下载 `.pptx` 到 PowerPoint 里逐个元素点开改——这才是"原生可编辑"的意思。
 
 <table>
 <tr>
-<td align="center" width="33%">
-<a href="examples/01_fmcg_growth_strategy/"><img src="examples/01_fmcg_growth_strategy/preview/cover.png" alt="元气浆 2027 全国化增长战略"/></a><br/>
+<td align="center" width="33%" valign="top">
+<a href="examples/01_fmcg_growth_strategy/"><img src="examples/01_fmcg_growth_strategy/preview/cover.png" alt="元气浆 2027 全国化增长战略" width="100%"/></a>
+<br/>
 <sub><b>快消品增长战略</b> — 元气浆 2027 全国化增长战略 · 39 页<br/>
 <a href="examples/01_fmcg_growth_strategy/元气浆_2027全国化增长战略.pptx">下载中文版</a> · <a href="examples/01_fmcg_growth_strategy/YuanQiJiang_2027_National_Growth_Strategy.pptx">Download EN</a></sub>
 </td>
-<td align="center" width="33%">
-<a href="examples/02_enterprise_ai_roadmap/"><img src="examples/02_enterprise_ai_roadmap/preview/cover.png" alt="云枢重工 AI 转型路线图 2027-2029"/></a><br/>
+<td align="center" width="33%" valign="top">
+<a href="examples/02_enterprise_ai_roadmap/"><img src="examples/02_enterprise_ai_roadmap/preview/cover.png" alt="云枢重工 AI 转型路线图 2027-2029" width="100%"/></a>
+<br/>
 <sub><b>制造业 AI 转型路线图</b> — 云枢重工 2027-2029 · 39 页<br/>
 <a href="examples/02_enterprise_ai_roadmap/云枢重工_AI转型路线图2027-2029.pptx">下载中文版</a> · <a href="examples/02_enterprise_ai_roadmap/Yunshu_Heavy_Industries_AI_Transformation_Roadmap_2027-2029.pptx">Download EN</a></sub>
 </td>
-<td align="center" width="33%">
-<a href="examples/03_hospitality_brand_launch/"><img src="examples/03_hospitality_brand_launch/preview/cover.png" alt="隐山 品牌启动与运营战略"/></a><br/>
+<td align="center" width="33%" valign="top">
+<a href="examples/03_hospitality_brand_launch/"><img src="examples/03_hospitality_brand_launch/preview/cover.png" alt="隐山 品牌启动与运营战略" width="100%"/></a>
+<br/>
 <sub><b>文旅品牌启动战略</b> — 隐山 品牌启动与运营战略 · 38 页<br/>
 <a href="examples/03_hospitality_brand_launch/隐山_品牌启动与运营战略.pptx">下载中文版</a> · <a href="examples/03_hospitality_brand_launch/YINSHAN_Brand_Launch_and_Operations_Strategy.pptx">Download EN</a></sub>
 </td>
@@ -34,8 +54,16 @@
 
 <table>
 <tr>
-<td align="center" width="50%"><img src="examples/02_enterprise_ai_roadmap/preview/matrix.png" alt="核心痛点诊断四象限矩阵"/><br/><sub>2×2 定位矩阵 —— 云枢重工核心痛点诊断</sub></td>
-<td align="center" width="50%"><img src="examples/03_hospitality_brand_launch/preview/gantt.png" alt="执行路线图甘特图"/><br/><sub>甘特图 —— 隐山三年拓店节奏</sub></td>
+<td align="center" width="50%" valign="top">
+<img src="examples/02_enterprise_ai_roadmap/preview/matrix.png" alt="核心痛点诊断四象限矩阵" width="100%"/>
+<br/>
+<sub>2×2 定位矩阵 —— 云枢重工核心痛点诊断</sub>
+</td>
+<td align="center" width="50%" valign="top">
+<img src="examples/03_hospitality_brand_launch/preview/gantt.png" alt="执行路线图甘特图" width="100%"/>
+<br/>
+<sub>甘特图 —— 隐山三年拓店节奏</sub>
+</td>
 </tr>
 </table>
 
