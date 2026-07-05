@@ -142,7 +142,21 @@ storyline 定稿（大纲）
 
 `skills/` 下的 SKILL.md 遵循纯 Markdown + YAML frontmatter 的 Agent Skills 格式，本质只要求宿主 agent 能做三件事：**读写文件、执行命令、支持多轮对话**。满足这三条的编码 agent 原则上都能跑，包括但不限于 Claude Code、Codex CLI、Cursor、VS Code + Copilot、Windsurf。
 
-**Claude Code（原生支持 · 一条命令装好，推荐）**：本仓库自带 `.claude-plugin/marketplace.json`，两条命令装完，Python 运行环境（`engine`/`reinforce`）会在下次会话启动时被 `SessionStart` 钩子自动装进插件专属的虚拟环境，不用自己 `pip install`：
+### 最简单：直接把链接甩给它
+
+不装插件、不用记命令，复制下面这句话丢给 Claude Code 或 Codex CLI 就行——它会自己 clone 仓库、自己读 SKILL.md、自己把 Python 环境装好：
+
+> 帮我配置 https://github.com/biaojunqin-coder/Opustelic-ppt-engine 这个项目，把它的三个 skill 装进 Claude Code 里给我用。
+
+Codex CLI 一样丢这句（把"Claude Code"换成"Codex"）：
+
+> 帮我配置 https://github.com/biaojunqin-coder/Opustelic-ppt-engine 这个项目，把它的三个 skill 装进 Codex 里给我用。
+
+这条路每次都是 agent 临场发挥装的，配置细节可能每次略有出入；想要固定、可复用、自动装好运行环境的方式，看下面的 Claude Code 插件安装法。
+
+### Claude Code（原生支持 · 一条命令装好，更稳定）
+
+本仓库自带 `.claude-plugin/marketplace.json`，两条命令装完，Python 运行环境（`engine`/`reinforce`）会在下次会话启动时被 `SessionStart` 钩子自动装进插件专属的虚拟环境，不用自己 `pip install`：
 
 ```
 /plugin marketplace add biaojunqin-coder/Opustelic-ppt-engine
@@ -164,7 +178,9 @@ ln -s /path/to/PPT-oss/skills/chaideck    /path/to/your-project/.claude/skills/c
 这种方式需要自己 `pip install -e .` 装好 Python 环境，重启 Claude Code 后输入 `/策略工作流` 即可加载。
 </details>
 
-**其他 agent（Codex CLI / Cursor 等，手动引用）**：这些工具目前没有和 Claude Code 完全一致的 Skill 自动发现机制，但 SKILL.md 本质就是一份可读的指令文档，手动引用同样可用——直接在对话里说"读 `skills/策略工作流/SKILL.md`，按它的流程带我过一遍"，或者把内容整合进对应工具的自定义指令机制（如 Codex CLI 的 `AGENTS.md`、Cursor 的 `.cursor/rules/`）。
+**Codex CLI**：2026 年起 Codex CLI 也有了自己一套插件市场机制（`.codex-plugin/plugin.json` + `.agents/plugins/marketplace.json`），原理和上面 Claude Code 这套几乎一样，但文件路径、钩子写法、环境变量名都不同。本仓库暂时没有专门为它发一份 manifest——没有 `codex` CLI 可以本地实测验证，怕写错 schema 导致装不上，所以先不装样子货。在它补上之前，直接用上面"甩链接"那招，或手动引用 SKILL.md 内容一样能跑。
+
+**其他 agent（Cursor / VS Code + Copilot 等，手动引用）**：这些工具目前没有和 Claude Code 一致的 Skill 自动发现机制，但 SKILL.md 本质就是一份可读的指令文档，手动引用同样可用——直接在对话里说"读 `skills/策略工作流/SKILL.md`，按它的流程带我过一遍"，或者把内容整合进对应工具的自定义指令机制（如 Cursor 的 `.cursor/rules/`）。
 
 ## 快速开始
 

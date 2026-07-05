@@ -149,7 +149,21 @@ What ships out of the box is a **methodology skeleton** — the structure is bui
 
 The SKILL.md files under `skills/` follow the Agent Skills format — plain Markdown with a YAML frontmatter — which fundamentally only requires the host agent to do three things: **read/write files, execute commands, and hold a multi-turn conversation**. Any coding agent that meets those three requirements should work in principle, including but not limited to Claude Code, Codex CLI, Cursor, VS Code + Copilot, and Windsurf.
 
-**Claude Code (native support — one command, recommended)**: this repo ships its own `.claude-plugin/marketplace.json`. Two commands and you're done — the Python runtime (`engine`/`reinforce`) gets installed automatically into a plugin-scoped virtual environment by a `SessionStart` hook the next time a session starts, no manual `pip install` needed:
+### Simplest: just hand it the link
+
+No plugin install, nothing to memorize — copy the line below to Claude Code or Codex CLI and it'll clone the repo, read the SKILL.md files, and set up the Python environment on its own:
+
+> Set up this project for me: https://github.com/biaojunqin-coder/Opustelic-ppt-engine — install its three skills into Claude Code for me to use.
+
+Same line works for Codex CLI (swap "Claude Code" for "Codex"):
+
+> Set up this project for me: https://github.com/biaojunqin-coder/Opustelic-ppt-engine — install its three skills into Codex for me to use.
+
+This route is improvised by the agent each time, so the exact setup may vary slightly run to run. For a fixed, repeatable install that also sets up the runtime automatically, see the Claude Code plugin method below.
+
+### Claude Code (native support — one command, more consistent)
+
+This repo ships its own `.claude-plugin/marketplace.json`. Two commands and you're done — the Python runtime (`engine`/`reinforce`) gets installed automatically into a plugin-scoped virtual environment by a `SessionStart` hook the next time a session starts, no manual `pip install` needed:
 
 ```
 /plugin marketplace add biaojunqin-coder/Opustelic-ppt-engine
@@ -171,7 +185,9 @@ ln -s /path/to/PPT-oss/skills/chaideck    /path/to/your-project/.claude/skills/c
 This route requires you to `pip install -e .` the Python environment yourself. Restart Claude Code, then type `/策略工作流` to load it.
 </details>
 
-**Other agents (Codex CLI / Cursor / etc., manual reference)**: these tools don't currently have a Skill auto-discovery mechanism identical to Claude Code's, but a SKILL.md is just a readable instruction document — manual reference works just as well. Either tell the agent directly, "read `skills/策略工作流/SKILL.md` and walk me through its process," or fold the content into that tool's own custom-instruction mechanism (e.g. Codex CLI's `AGENTS.md`, Cursor's `.cursor/rules/`).
+**Codex CLI**: as of 2026, Codex CLI has its own plugin-marketplace mechanism too (`.codex-plugin/plugin.json` + `.agents/plugins/marketplace.json`), working on the same principle as Claude Code's setup above, but with different file paths, hook syntax, and environment variable names. This repo doesn't ship a manifest for it yet — without a local `codex` CLI to actually test against, shipping an unverified schema risks a broken install, so we're holding off rather than ship something untested. Until then, use the "hand it the link" approach above, or reference the SKILL.md content manually.
+
+**Other agents (Cursor, VS Code + Copilot, etc., manual reference)**: these tools don't currently have a Skill auto-discovery mechanism identical to Claude Code's, but a SKILL.md is just a readable instruction document — manual reference works just as well. Either tell the agent directly, "read `skills/策略工作流/SKILL.md` and walk me through its process," or fold the content into that tool's own custom-instruction mechanism (e.g. Cursor's `.cursor/rules/`).
 
 ## Quick Start
 
