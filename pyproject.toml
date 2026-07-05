@@ -1,0 +1,40 @@
+[project]
+name = "ppt-engine"
+version = "0.1.0"
+description = "PPT Engine —— 把模糊 brief 做成咨询级/投资人级 deck 的引擎：策略工作流 + 制作工作流 + fail-closed 质量门，输出原生可编辑 .pptx"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    # vendor svg2pptx 导出引擎的硬依赖（engine/svg2pptx/svg_to_pptx/pptx_builder.py:23）。
+    "python-pptx",
+    # brief_parse.parse_brief 的核心解析器（无 key 本地路径·fallback 链的地基）：
+    # PDF→pymupdf(fitz)、DOCX→python-docx。docling 是可选增强(extra)，缺 fitz 时
+    # PDF 解析直接 ImportError，故列为硬依赖。
+    "pymupdf",
+    "python-docx",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "httpx"]
+# docling：PDF 版面分析增强(brief_parse.py::parse_brief prefer_docling=True)·2026-07-01起推荐路径。
+# MIT许可+本仓库Python 3.14实测装得上+真实验证过中文/复杂表格提取(D13决策记录)，代价是依赖链重
+# (torch等·单独torch 443MB，全装1GB+)，未装时自动fallback fitz，不影响主流程。
+docling = ["docling"]
+# mineru：PDF 版面分析增强(brief_parse.py::parse_brief prefer_mineru=True)。
+# ⚠️ 2026-07-01发现：requires_python<3.14，跟本仓库Python 3.14硬不兼容，pip install直接被拒——
+# 这个extra在本仓库当前装不上，留着是给未来Python<3.14环境或MinerU补上3.14支持后用，见D13决策记录。
+# 未装时自动 fallback fitz，不影响主流程；装得上的环境首次真调用会另外下载模型权重(几百MB~数GB)。
+mineru = ["mineru"]
+# preview：制作层"渲染→自检"闭环用(engine/render_preview.py，D7路线A拍板)。装完还要额外
+# `playwright install chromium`(几百MB浏览器内核，单独下载，pip装包不含)。CJK正确渲染必须真浏览器，
+# 见 render_preview.py 模块docstring(cairosvg等轻量方案中文字体无回退链，vendor ppt-master已验证踩过)。
+preview = ["playwright"]
+
+# 包发现：只发布 engine/reinforce 两个能力包（skills/specs/research_lib 等是工作目录不是库代码）。
+[tool.setuptools.packages.find]
+include = ["engine*", "reinforce*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

@@ -1,0 +1,118 @@
+#!/usr/bin/env python3
+"""git pre-commit 钩子：留痕体系内的知识库 JSON 改了但没走版本留痕 → 拒绝提交。
+
+补 L7 铁律"谁都能绕过代码直接改文件"最后一环——reinforce/evolution/versioning.py::record_library_change()
+只在"大家都自觉调用"时才留痕，这道钩子让"不调用就提交"这件事在 git 层面物理上做不到（commit 都提
+不上去，不是提交完再补救）。核心判断逻辑在 reinforce/evolution/versioning.py::library_change_violations
+（纯函数·独立可测），这里只是读 git 状态喂给它的薄壳。
+
+2026-07-02 saopan扫盘三处补强：
+  ① 换用 library_change_violations 完整校验——旧版只验 version 数字，手改内容+手动 version+1
+    （不追加 change_log）就能放行，"留痕"名存实亡；现在 version 涨/change_log 追加/新条目
+    version 匹配三件缺一拦。
+  ② staged 删除（git 状态 D）整个库文件 → 直接拒绝——旧版 `git show :path` 失败即 continue，
+    删库这种最重的承重墙操作反而被静默放行。
+  ③ 监控名单从硬编码 3 卡库扩成 5 库映射（补数据色板/行业知识库——两者都有生产消费方
+    data_palette.py / search_facts，此前完全在留痕体系外），且各库内容主体键不同（cards/
+    families/facts），名单里显式带上。
+
+安装（clone 后跑一次，钩子本身不随 git clone 自动生效——.git/hooks/ 不受版本控制）：
+    git config core.hooksPath .githooks
+
+真有理由要跳过这道门（比如紧急修复/人工确认过的删库）：git commit --no-verify，
+但要在 commit message 里说清楚为什么。
+"""
+
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from reinforce.evolution.versioning import library_change_violations  # noqa: E402
+
+# 监控库 → 内容主体键（version/change_log 之外真正装知识的那个顶层键·各库不同）
+LIBRARIES = {
+    "exemplars/页型卡库.json": "cards",
+    "exemplars/表达手法卡.json": "cards",
+    "exemplars/分析框架库.json": "cards",
+    "exemplars/数据色板.json": "families",
+    "research_lib/真实样本/_行业知识库.json": "facts",
+}
+
+
+def _git(*args: str) -> subprocess.CompletedProcess:
+    """-c core.quotePath=false：中文等非 ASCII 文件名默认会被 git 转成八进制转义字符串
+    （如"exemplars/\\351\\241...json"），字符串匹配永远对不上——这里踩过一次真实的坑，
+    关掉这个转义拿原始 UTF-8。"""
+    return subprocess.run(["git", "-c", "core.quotePath=false", *args], capture_output=True, text=True)
+
+
+def _git_show(rev_path: str) -> str | None:
+    """git show <rev>:<path> —— 只读，不改动任何 git 状态。"""
+    r = _git("show", rev_path)
+    return r.stdout if r.returncode == 0 else None
+
+
+def _staged_status() -> dict[str, str]:
+    """暂存区 path → git 状态首字母（M 改/A 增/D 删…）。rename(Rxx) 的旧路径记为 D——
+    库文件被改名挪走，对"这个路径上的承重墙库"而言等同删除，同样要人工确认。"""
+    status: dict[str, str] = {}
+    for line in _git("diff", "--cached", "--name-status").stdout.splitlines():
+        parts = line.split("\t")
+        if len(parts) < 2 or not parts[0]:
+            continue
+        code = parts[0][0]
+        if code in ("R", "C") and len(parts) >= 3:
+            if code == "R":
+                status[parts[1]] = "D"
+            status[parts[2]] = "M"
+        else:
+            status[parts[1]] = code
+    return status
+
+
+def main() -> int:
+    staged = _staged_status()
+    failed = []
+    for path, content_key in LIBRARIES.items():
+        st = staged.get(path)
+        if st is None:
+            continue
+        if st == "D":
+            # 2026-07-02 saopan扫盘揪出：旧版 git show :path 失败即 continue——删除整个库文件
+            # （最重的承重墙操作）反而被静默放行。删库必须人走 --no-verify 显式确认，钩子不放。
+            failed.append(f"{path}：整个库文件被 staged 删除——这是承重墙操作，需人工确认；"
+                          f"确要删除请 git commit --no-verify 并在 message 里说清楚为什么")
+            continue
+        new_raw = _git_show(f":{path}")   # 暂存区(index)版本·真正要被提交的内容
+        if new_raw is None:
+            # 非删除却读不到暂存区内容（如 unmerged 冲突态）——读不懂就不放行（fail-closed），
+            # 不再沿用旧版"读不到就当没改"的静默放行。
+            failed.append(f"{path}：staged 状态为 {st} 但读不到暂存区内容，无法校验留痕（fail-closed 拒绝）")
+            continue
+        try:
+            new_data = json.loads(new_raw)
+        except json.JSONDecodeError:
+            failed.append(f"{path}：JSON 格式错误，无法校验 version/change_log")
+            continue
+        old_raw = _git_show(f"HEAD:{path}")   # 上一次提交版本·新文件时 HEAD 里没有
+        old_data = json.loads(old_raw) if old_raw else {content_key: [], "version": 0}
+        for prob in library_change_violations(old_data, new_data, content_key=content_key):
+            failed.append(f"{path}：{prob}")
+    if failed:
+        print("❌ pre-commit 拒绝：知识库改动没走版本留痕（补 L7 铁律）", file=sys.stderr)
+        for f in failed:
+            print(f"   - {f}", file=sys.stderr)
+        print("   改动库内容的正确姿势：改完后调 reinforce.evolution.versioning.record_library_change()", file=sys.stderr)
+        print("   （它会把 version+1 并追加 change_log 条目·谁改的/改了什么/为什么），再 git add 提交。", file=sys.stderr)
+        print("   确有理由跳过（紧急修复/人工确认过的删库）：git commit --no-verify（message 里说清楚为什么）", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

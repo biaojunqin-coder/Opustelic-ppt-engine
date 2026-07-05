@@ -1,0 +1,23 @@
+# 密钥/环境
+.env
+.env.*
+*.pem
+*.key
+
+# 客户/私有数据（绝不进仓）
+research_lib/真实样本/_品牌知识库.json
+reinforce/evolution/*.json
+data/decks/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+.pytest_cache/
+
+# macOS
+.DS_Store
+
+# 图库key
+.image_keys.json

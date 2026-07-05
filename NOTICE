@@ -1,0 +1,17 @@
+PPT Engine
+Copyright 2026 PPT Engine contributors
+
+This product includes software developed as PPT Engine,
+licensed under the Apache License, Version 2.0.
+
+This product bundles third-party material:
+
+- A vendored SVG-to-PPTX export engine and templates (ppt-master),
+  under engine/svg2pptx/ and engine/ppt_master/, MIT License,
+  Copyright (c) 2025-2026 Hugo He. See engine/ppt_master/LICENSE.ppt-master.
+- The simple-icons icon set, under
+  engine/ppt_master/templates/icons/simple-icons/, licensed CC0-1.0
+  (public domain). See https://github.com/simple-icons/simple-icons.
+
+Each bundled component is distributed under its own license; consult the
+respective files/links for terms.

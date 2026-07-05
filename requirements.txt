@@ -1,0 +1,11 @@
+# 运行依赖（装进 .venv）：python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+fastapi
+uvicorn
+
+# 开发 / 测试
+pytest
+httpx
+python-pptx
+pymupdf
+edge-tts  # 免费神经 TTS(无 key·语音讲解用)
+python-docx  # brief 解析(.docx)

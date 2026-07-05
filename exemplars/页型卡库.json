@@ -1,0 +1,1937 @@
+{
+  "_schema": "deck 页型手法卡 · 主键=page_function · 6 facets + 检索规则(pick/skip_when) · 对应 Novel exemplars_l1 手法卡 · 可选字段 char_budget(该页型正文字数上限·presenton字段级长度契约启发·2026-07-01补·目前仅少量'巨字单句'类页型标了实证值，非全量覆盖，见D6决策记录)",
+  "_来源": "拆真实成品 deck(非开源工具)·苦力=Claude视觉读图·demo带页号可溯源·分品类评级",
+  "_台账": "../research_lib/真实样本/README.md · 检索本体见 ../specs/拆deck-检索本体设计.md",
+  "cards": [
+    {
+      "id": "page-001",
+      "page_function": "金句主张",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌策略提案"
+      ],
+      "pick_when": "把一个核心定位/主张钉进受众脑子",
+      "skip_when": "需展开论证→用论点页",
+      "technique": "红黑双色巨字单句+淡灰logo水印+底部tagline",
+      "mechanism": "极致聚焦单一主张+色彩对比冲击",
+      "rating": 5,
+      "char_budget": 16
+    },
+    {
+      "id": "page-002",
+      "page_function": "二元对比",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌策略提案"
+      ],
+      "pick_when": "把两个对立概念讲清且需受众记住差异",
+      "skip_when": "概念>2→用矩阵；无对立→用并列",
+      "technique": "A黑vsB红巨字对比+各自小注+引号金句帽+底部类比例证",
+      "mechanism": "对立可视化+类比落地抽象概念",
+      "rating": 5,
+      "char_budget": 12
+    },
+    {
+      "id": "page-003",
+      "page_function": "洞察推导",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌策略提案"
+      ],
+      "pick_when": "从真实消费者洞察推导出可复制策略",
+      "skip_when": "无洞察支撑的纯结论",
+      "technique": "消费者心声引号大字→红字本质→句式公式",
+      "mechanism": "洞察→本质→可复制公式三段推导",
+      "rating": 5
+    },
+    {
+      "id": "page-004",
+      "page_function": "流程分层",
+      "domain": [
+        "营销品牌",
+        "咨询战略"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌策略提案"
+      ],
+      "pick_when": "把概念→产品的落地路径可视化",
+      "skip_when": "无阶段递进关系",
+      "technique": "N阶段图标+箭头流程+每阶段分层(标题/口号/举例)",
+      "mechanism": "路径可视化·高密度有序",
+      "rating": 5
+    },
+    {
+      "id": "page-005",
+      "page_function": "框架模型",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌策略提案"
+      ],
+      "pick_when": "用标准品牌模型承载定位落地",
+      "skip_when": "非品牌类→用对应领域框架",
+      "technique": "经典模型六宫格(Human Truth/Purpose/RTB/Benefits/Must Haves/Personality)+彩色首字母助记",
+      "mechanism": "标准模型承载+彩色首字母锚记忆",
+      "rating": 5
+    },
+    {
+      "id": "cover-chapter",
+      "page_function": "封面/章节",
+      "domain": [
+        "通用"
+      ],
+      "intent": [
+        "展示介绍"
+      ],
+      "doc_type_seen": [
+        "品牌策略提案"
+      ],
+      "pick_when": "deck封面或章节分隔",
+      "skip_when": "-",
+      "technique": "巨字标题+统一品牌页眉/页脚+淡灰水印副标/数字",
+      "mechanism": "统一系统+巨字聚焦+水印预告",
+      "rating": 4,
+      "char_budget": 12
+    },
+    {
+      "id": "page-007",
+      "page_function": "产品功能展示",
+      "domain": [
+        "产品数字"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "数字产品提案"
+      ],
+      "pick_when": "展示数字产品界面/UX方案",
+      "skip_when": "非界面类→用框架图",
+      "technique": "action title+手机mockup截图×2+左右红点注解功能",
+      "mechanism": "真实界面+定点注解·所见即所得",
+      "rating": 4
+    },
+    {
+      "id": "page-008",
+      "page_function": "组件规范",
+      "domain": [
+        "产品数字"
+      ],
+      "intent": [
+        "说服决策",
+        "传递教学"
+      ],
+      "doc_type_seen": [
+        "数字产品提案"
+      ],
+      "pick_when": "展示交互状态/组件规范",
+      "skip_when": "-",
+      "technique": "mockup+状态/按钮规范化分组(On-going/Not Start/End)",
+      "mechanism": "状态枚举可视化",
+      "rating": 4
+    },
+    {
+      "id": "mck-titletakeaway",
+      "page_function": "数据呈现",
+      "domain": [
+        "咨询战略",
+        "财务数据"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "咨询财务分析"
+      ],
+      "pick_when": "用数据支撑一个明确结论(咨询级标配)",
+      "skip_when": "纯陈列数据无结论",
+      "technique": "结论式action title+左图右takeaway框+来源脚注+Z字布局",
+      "mechanism": "结论先行+图证结论+可溯源·咨询级信任度",
+      "rating": 5
+    },
+    {
+      "id": "mck-scenario",
+      "page_function": "情景对比",
+      "domain": [
+        "咨询战略",
+        "财务数据"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "咨询财务分析"
+      ],
+      "pick_when": "对比多个未来情景/路径",
+      "skip_when": "单一确定路径",
+      "technique": "多情景折线(Scenario1/2不同色)+右侧takeaway",
+      "mechanism": "情景并置·让不确定性可决策",
+      "rating": 5
+    },
+    {
+      "id": "mck-agenda",
+      "page_function": "议程",
+      "domain": [
+        "咨询战略",
+        "通用"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "咨询财务分析"
+      ],
+      "pick_when": "长deck章节导航",
+      "skip_when": "短deck无需",
+      "technique": "极简Contents+章节列表+当前章加粗",
+      "mechanism": "导航锚点·当前位置感",
+      "rating": 4
+    },
+    {
+      "id": "imc-materialmatrix",
+      "page_function": "物料矩阵",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "展示介绍",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销IMC方案"
+      ],
+      "pick_when": "展示 campaign 多物料/触点的内容日历",
+      "skip_when": "单一物料→直接展示",
+      "technique": "多物料海报横排+各自日期/对阵/文案+品牌色统一",
+      "mechanism": "物料矩阵化·campaign 落地可见可排期",
+      "rating": 4
+    },
+    {
+      "id": "imc-effectkpi",
+      "page_function": "效果预估",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销IMC方案"
+      ],
+      "pick_when": "提案末尾量化预估 campaign 效果/KPI 说服决策",
+      "skip_when": "非提案/无量化目标",
+      "technique": "mockup+分层效果指标(自有/公域/提升·带数字)",
+      "mechanism": "量化预期收益·临门一脚说服",
+      "rating": 4
+    },
+    {
+      "id": "page-014",
+      "page_function": "转场页",
+      "domain": [
+        "通用",
+        "营销品牌"
+      ],
+      "intent": [
+        "展示介绍"
+      ],
+      "doc_type_seen": [
+        "品牌传播方案"
+      ],
+      "pick_when": "演讲版章节切换·做节奏骨架",
+      "skip_when": "阅读版/短deck→章节分隔即可",
+      "technique": "纯标题+红色Part编号+大量留白",
+      "mechanism": "极简转场·切分deck为段落·制造节奏停顿",
+      "rating": 5
+    },
+    {
+      "id": "page-015",
+      "page_function": "情绪slogan页",
+      "domain": [
+        "营销品牌",
+        "通用"
+      ],
+      "intent": [
+        "说服决策",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌传播方案"
+      ],
+      "pick_when": "演讲版表达态度/人群洞察·给演讲者口头发挥",
+      "skip_when": "需数据论证→数据论断页;阅读版慎用",
+      "technique": "黑底一句大字+一张照片+无数据",
+      "mechanism": "情绪聚焦·留白给演讲者发挥·制造记忆点",
+      "rating": 5,
+      "char_budget": 14
+    },
+    {
+      "id": "page-016",
+      "page_function": "数据callout页",
+      "domain": [
+        "通用",
+        "营销品牌",
+        "财务数据"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌传播方案"
+      ],
+      "pick_when": "演讲版单一关键数字要冲击力",
+      "skip_when": "多数据合围→阅读版表格",
+      "technique": "巨大数字(占半屏)+一句解读+留白",
+      "mechanism": "单数字焦点·瞬间记忆",
+      "rating": 4
+    },
+    {
+      "id": "page-017",
+      "page_function": "高潮页",
+      "domain": [
+        "营销品牌",
+        "通用"
+      ],
+      "intent": [
+        "说服决策",
+        "展示介绍"
+      ],
+      "doc_type_seen": [
+        "品牌传播方案"
+      ],
+      "pick_when": "演讲版情感顶点·愿景/召唤",
+      "skip_when": "阅读版/理性场景",
+      "technique": "全屏视觉(星空/大图)+一句愿景大字",
+      "mechanism": "全屏冲击·情感顶点·呼应开篇",
+      "rating": 5,
+      "char_budget": 24
+    },
+    {
+      "id": "page-018",
+      "page_function": "落幕页",
+      "domain": [
+        "通用",
+        "营销品牌"
+      ],
+      "intent": [
+        "展示介绍",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌传播方案"
+      ],
+      "pick_when": "演讲版收尾·呼应开篇留余韵",
+      "skip_when": "阅读版→用SOW工作范围收尾",
+      "technique": "黑底一句+logo·回扣开篇高潮",
+      "mechanism": "首尾情绪闭环·留余韵",
+      "rating": 5
+    },
+    {
+      "id": "page-019",
+      "page_function": "导读副标题页",
+      "domain": [
+        "通用",
+        "产品数字",
+        "咨询战略"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "数字产品提案"
+      ],
+      "pick_when": "阅读版每页·让读者脱离演讲者自读",
+      "skip_when": "演讲版→靠口头补",
+      "technique": "标题(论点)+灰色导读副标题(本页作用)+内容·三段式统一模板",
+      "mechanism": "导读副标题=so-what显性化·信息自洽",
+      "rating": 5
+    },
+    {
+      "id": "product_positioning_hero",
+      "page_function": "产品定位钉子页",
+      "domain": [
+        "互联网产品",
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "产品营销手册"
+      ],
+      "pick_when": "需要在产品介绍开篇用一页把'产品是什么+为什么现在做'钉死，后续所有页都是这句话的展开",
+      "skip_when": "产品定位本身还在讨论中/未定稿，不要提前钉死误导受众",
+      "technique": "左侧超大艺术字Logo+竖排辅助线条装饰；右侧三行递进式短句用渐变色块背景做视觉强调，每行字号一致但色块透明度递减制造节奏感",
+      "mechanism": "logo级大字+三个递进短句形成'定义+展开'的双层信息结构，比大段文字定位语更快建立记忆点",
+      "rating": 4
+    },
+    {
+      "id": "page-021",
+      "page_function": "能力矩阵对比页",
+      "domain": [
+        "互联网产品",
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "产品营销手册"
+      ],
+      "pick_when": "产品有多种子模式需要让客户一眼看清楚组合关系和适用场景，且子模式数量在3-5个之间",
+      "skip_when": "子模式之间没有交叉关系，或维度超过2个会导致表格拥挤",
+      "technique": "顶部横向排列N个子类型每类下标注审核方式徽章；左侧竖向两个激励模式交叉出对应说明；右下角单独跳出边界的注脚框做视觉呼吸点",
+      "mechanism": "矩阵表把'类型×激励'的组合关系一次性摊平，跳出边界的注脚框利用视觉打断制造重点提示",
+      "rating": 4
+    },
+    {
+      "id": "ugc_requirement_verbatim_evidence",
+      "page_function": "任务要求原文实证页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "产品营销手册"
+      ],
+      "pick_when": "需要证明产品能承接'广告主定制化要求'这种抽象能力时，直接放真实客户任务的完整要求原文",
+      "skip_when": "客户任务要求本身平淡无特色，逐字搬运反而拉低页面信息密度",
+      "technique": "左侧真实手机截图，右侧用等宽字体逐条列出任务要求原文(含口语化表达)，用箭头连接截图与文字块",
+      "mechanism": "原文逐字搬运保留真实客户任务的口语感和具体性，比经过品牌部门包装的summary更有说服力，属于'脏数据即信任状'的证据策略",
+      "rating": 4
+    },
+    {
+      "id": "case_kpi_funnel_dashboard",
+      "page_function": "案例数据仪表盘页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "产品营销手册"
+      ],
+      "pick_when": "亮点案例页需要证明'不只是曝光，是全链路转化'时，把5-6个指标分组卡片化呈现并搭配同比数据",
+      "skip_when": "案例数据不全或没有同比对比基准，硬凑数字反而暴露证据薄弱",
+      "technique": "顶部宏观概览数字卡片→中部转化漏斗→底部私域增长趋势，每组数据配一句定性总结句做锚点",
+      "mechanism": "分层递进的KPI仪表盘复现营销漏斗的因果链条，比单一大数字更能证明是完整生意闭环",
+      "rating": 5
+    },
+    {
+      "id": "user_journey_screenshot_chain",
+      "page_function": "用户流程截图链条页",
+      "domain": [
+        "互联网产品"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "产品营销手册"
+      ],
+      "pick_when": "需要证明产品操作路径简单/无学习门槛，用5-7张真机截图串联完整用户旅程",
+      "skip_when": "产品流程本身复杂需要文字讲解分支逻辑时，纯截图链条会丢失分支信息",
+      "technique": "横向真实手机截图等宽平铺，箭头连接，每张下方仅一行极简说明，不加多余分析文字",
+      "mechanism": "真机截图链条利用'看得见的操作路径'替代文字描述，所见即所得的信任度天然更高",
+      "rating": 3
+    },
+    {
+      "id": "page-025",
+      "page_function": "受众画像页(圆环统计+人群标签矩阵)",
+      "domain": [
+        "营销品牌",
+        "公司介绍"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "公司/商业能力介绍"
+      ],
+      "pick_when": "需要证明目标受众精准度/含金量，用人口学数据为后续商业合作背书",
+      "skip_when": "受众数据不完整或不具备差异化优势时",
+      "technique": "顶部圆环图横向等距排列，中部通栏色块放大展示比例双数字，底部圆形色块+#标签矩阵",
+      "mechanism": "圆环图天然传达占比语义，#标签矩阵模拟社交媒体标签体系，比传统项目符号更轻量",
+      "rating": 4
+    },
+    {
+      "id": "case_evidence_headline_quote",
+      "page_function": "案例力证页(媒体标题截图墙+人物采访佐证)",
+      "domain": [
+        "营销品牌",
+        "公司介绍"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "公司/商业能力介绍"
+      ],
+      "pick_when": "证明内容影响力/传播力时，用真实发布过的爆款标题做视觉证据比自我表述更有说服力",
+      "skip_when": "没有真实可查的历史发布记录，或标题平淡不具备传播记忆点",
+      "technique": "左侧纵向堆叠真实文章标题(带红色矩形框强调+来源/日期水印)，右侧配对应人物采访视频封面图",
+      "mechanism": "红框强调把视线钉在标题原文本身，标题原文自带传播基因，让评委自己感受传播力而非被动接受结论",
+      "rating": 4
+    },
+    {
+      "id": "bubble_client_logo_cloud",
+      "page_function": "客户矩阵页(气泡尺寸编码logo墙)",
+      "domain": [
+        "营销品牌",
+        "公司介绍"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "公司/商业能力介绍"
+      ],
+      "pick_when": "证明合作客户量级与含金量，且客户之间有明显的重要性梯度值得用视觉大小区分",
+      "skip_when": "客户logo数量少于10个，或客户量级差异不大时",
+      "technique": "全灰白单色logo气泡随机堆叠，气泡直径按客户重要性/合作深度分级，底部一行文字总结服务规模",
+      "mechanism": "气泡尺寸编码是隐性的重要性排序，不需要文字标注就能让读者视觉优先注意大气泡客户",
+      "rating": 4
+    },
+    {
+      "id": "wechat_matrix_account_card",
+      "page_function": "矩阵账号展示页(单账号数据名片·可复制模板)",
+      "domain": [
+        "营销品牌",
+        "公司介绍"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "公司/商业能力介绍"
+      ],
+      "pick_when": "拥有多个垂类子品牌/矩阵账号，需要逐一展示但又要保持整体视觉统一节奏时",
+      "skip_when": "只有单一账号/单一产品线时",
+      "technique": "每个账号一页统一模板骨架：logo+关键数据横排+内容特色标签+真实推文截图佐证，不同账号用不同主题色区分+背景巨字水印",
+      "mechanism": "同一模板批量复用降低认知切换成本，巨字背景水印在快速翻阅时仍能一眼定位板块归属",
+      "rating": 4
+    },
+    {
+      "id": "curiosity_hook_flow_card",
+      "page_function": "内容示例页(疑问钩子→关键词→产品闭环流程卡)",
+      "domain": [
+        "营销品牌",
+        "公司介绍"
+      ],
+      "intent": [
+        "说服决策",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "公司/商业能力介绍"
+      ],
+      "pick_when": "展示科普内容如何软性带出商业产品，需要评委直观理解内容到转化的逻辑链条",
+      "skip_when": "没有真实的软文案例可引用，或该逻辑链条本身并不成立",
+      "technique": "背景铺满全屏氛围图，前景纵向排布3个箭头连接的矩形条：冷知识提问→中间结论→商业产品露出，右侧配真实文章截图",
+      "mechanism": "三段式箭头流程把内容营销转化路径可视化为不可辩驳的因果链",
+      "rating": 5
+    },
+    {
+      "id": "campaign-way-in-poem",
+      "page_function": "创意引入·诗化过渡页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "社媒内容日历提案"
+      ],
+      "pick_when": "每个子campaign正式展开创意前，需要用产品事实自然过渡到情绪主张，给评审一个慢下来的呼吸点",
+      "skip_when": "评审时间紧、deck页数受限时",
+      "technique": "全深色产品特写图做背景轻度虚化，居中偏左三段短句像诗一样分行排布(产品事实→人群心理→情绪升华)",
+      "mechanism": "诗化短句+留白排版降低阅读速度，让评审从看数据模式切换到感受品牌模式",
+      "rating": 4
+    },
+    {
+      "id": "campaign-roadmap-3phase",
+      "page_function": "执行排期总览页(Teaser-Launch-Sustain三段式Roadmap)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "社媒内容日历提案"
+      ],
+      "pick_when": "一个campaign讲完多个创意点子后，需要一页把所有素材/话题按时间轴和阶段收束成可执行排期",
+      "skip_when": "campaign只有单一动作、不构成多阶段传播时；或提案阶段还未定档期",
+      "technique": "顶部三栏时间轴，每栏下方堆叠该阶段的话题标签+缩略图卡片，平台icon贴在栏名旁做渠道标注",
+      "mechanism": "把创意素材化陈列在时间轴下，读者一眼验证创意→物料→节奏三者是否闭环",
+      "rating": 4
+    },
+    {
+      "id": "social-kol-strategy-matrix",
+      "page_function": "KOL矩阵策略页(分阶段/分平台/分层级)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "社媒内容日历提案"
+      ],
+      "pick_when": "需要证明每个campaign阶段的KOL投放逻辑是有章法的，尤其甲方关心预算分配合理性时",
+      "skip_when": "提案阶段尚未做KOL选角调研、数字是拍脑袋估的",
+      "technique": "左侧固定五行标签，右侧按Teaser-Launch-Sustain分三列填对应平台/品类/层级/目标短句",
+      "mechanism": "矩阵结构把谁-在哪-多大量级-为什么四个决策维度并置对比，比大段文字说明更易被非专业甲方读懂",
+      "rating": 4
+    },
+    {
+      "id": "annual-social-calendar-master",
+      "page_function": "全案社媒日历总览页(年度矩阵)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "社媒内容日历提案"
+      ],
+      "pick_when": "deck收尾前，把前面讲过的所有独立campaign拉平到同一张年度时间轴+阶段矩阵里",
+      "skip_when": "只有单一campaign、不构成年度矩阵时",
+      "technique": "横轴月份区间对应三个campaign名称+主标签，纵轴Teaser/Launch/Sustain三行，交叉格内填具体话题标签",
+      "mechanism": "把全篇碎片信息压缩进一张矩阵，纵横对齐让读者一眼看穿全年传播节奏是否有空档/重叠",
+      "rating": 5
+    },
+    {
+      "id": "manifesto_declaration",
+      "page_function": "宣言页/态度声明",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "策略推导完成后需要一页把品牌与城市/群体精神强绑定，制造情绪高点，承上启下引出Core Idea",
+      "skip_when": "论证还没做实就直接上宣言，会显得空洞喊口号",
+      "technique": "全屏城市夜景大图打底半透明黑遮罩，三段递进式短句左对齐分行排布，关键词纯色加粗",
+      "mechanism": "视觉留白+短句分行制造朗读节奏感，三段式从城市与人的关系逐步收窄到品牌与人的关系",
+      "rating": 4
+    },
+    {
+      "id": "city_pride_evidence_grid",
+      "page_function": "论据网格/城市名片举证",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "需要用一组视觉证据快速铺陈一个抽象主张的具体内涵，让观众自己脑补论证",
+      "skip_when": "证据之间没有内在分类逻辑、纯堆图凑数时",
+      "technique": "深色背景+左上角标题+4张等宽图片一排+每图下方极短中文标签，右上角品牌logo固定位",
+      "mechanism": "4宫格并列制造类型丰富、证据充分的错觉说服力，极短标签降低认知负荷",
+      "rating": 4
+    },
+    {
+      "id": "timeline_retrospective_strip",
+      "page_function": "历史脉络回顾/年份条",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "需要证明这不是拍脑袋的新想法，展示品牌在同一主题上多年持续深耕的轨迹",
+      "skip_when": "品牌过去在该主题上没有持续动作、或本次是全新转型时",
+      "technique": "多张历史campaign海报图不规则拼贴(最新年份给最大尺寸)，每图叠加半透明年份数字+一句主题定位",
+      "mechanism": "年份+主题词的对仗排比让评审瞬间读出主题在进化、层层递进的叙事曲线",
+      "rating": 4
+    },
+    {
+      "id": "ambassador_dual_column_profile",
+      "page_function": "代言人推荐卡",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "向客户推荐具体代言人/KOL人选时，需要在一页内同时交代人设/理由/内容产出预览",
+      "skip_when": "代言人尚未锁定候选池、还在海选阶段时",
+      "technique": "左侧竖排姓名背景推荐理由，右侧人像全身棚拍图，最右独立信息栏放文案预览，三栏结构固定复用",
+      "mechanism": "三栏并置让决策者同时看到人设匹配度+视觉呈现效果+内容产出预览，把决策具象成可想象最终成片的沙盘",
+      "rating": 4
+    },
+    {
+      "id": "phase_divider_fullbleed",
+      "page_function": "阶段转场页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "多阶段执行方案需要在切换阶段时给观众明确的现在讲到哪了锚点",
+      "skip_when": "方案本身阶段少于2个、或阶段边界模糊时",
+      "technique": "全屏场景大图+深色渐变遮罩+居中文字块：小字阶段时间范围→大字中文阶段主题→小字三要素副标",
+      "mechanism": "全屏图片制造翻页休息点的视觉呼吸感，三要素副标提前预告后续页面骨架",
+      "rating": 3
+    },
+    {
+      "id": "market-scorecard-4up",
+      "page_function": "行业大盘四宫格速览",
+      "domain": [
+        "营销品牌",
+        "消费品"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌方案提案"
+      ],
+      "pick_when": "开篇需要用一页把行业大盘的多个维度一次性摊给决策者看全局",
+      "skip_when": "只有1-2个核心数字要强调时，四宫格会稀释重点",
+      "technique": "左侧大色块KPI卡+中间柱状图(总量趋势)+右侧堆叠柱状图(价格带演变)，色块用统一底色+白字大数字",
+      "mechanism": "大色块数字卡制造一眼扫过即可记住关键数的效果，配合柱状图给出时间趋势佐证",
+      "rating": 4
+    },
+    {
+      "id": "competitor-positioning-3up-card",
+      "page_function": "竞品定位案例卡片墙",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌方案提案",
+        "竞品分析"
+      ],
+      "pick_when": "需要横向对比3个以上竞品的品牌关键词/理念/视觉语言，为后续品牌定位画像铺垫论据",
+      "skip_when": "只对比1-2家竞品，或对比维度太深时",
+      "technique": "三栏等宽卡片，每栏统一结构=logo+slogan→关键词→理念→底部产品视觉图集拼贴，多页保持栏位结构完全一致",
+      "mechanism": "结构复用形成节奏感，读者扫过第一栏就学会阅读规则，图片拼贴让抽象的品牌调性变得可视可比",
+      "rating": 4
+    },
+    {
+      "id": "brand-positioning-2x2-migration",
+      "page_function": "品牌定位矩阵+迁移路径",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌方案提案"
+      ],
+      "pick_when": "需要论证品牌该往哪个方向走，且已有清晰的竞品坐标可以对标定位",
+      "skip_when": "品牌定位维度还没被验证/调研支撑不足时",
+      "technique": "经典2x2矩阵，把自己的品牌logo画在矩阵内并用色圈标出Current→Step1→Step2的迁移箭头，竞品logo灰阶化处理",
+      "mechanism": "灰阶竞品降低视觉噪音、突出主角，箭头把静态定位图变成动态叙事",
+      "rating": 5
+    },
+    {
+      "id": "brand-house-single-table",
+      "page_function": "品牌屋框架单表呈现",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌方案提案"
+      ],
+      "pick_when": "策略定稿后需要把Human Truth/Purpose/Benefit/RTB/Must Have/Tone of Voice一次性钉死成客户可签字确认的基准文档",
+      "skip_when": "策略仍在讨论阶段/未最终拍板时",
+      "technique": "黑底白字表头+左列中英双语标签+右列填充内容，Brand Purpose一行用强调色加大加粗单独突出",
+      "mechanism": "品牌屋是营销行业标准框架，读者自带读表格的肌肉记忆，加粗行制造视觉锚点",
+      "rating": 4
+    },
+    {
+      "id": "hook-cover-brand-cta",
+      "page_function": "封面钩子页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign策略提案"
+      ],
+      "pick_when": "快消/饮品类品牌campaign提案封面，需要产品即视感+项目名一步到位",
+      "skip_when": "toB/严肃咨询类deck，产品实拍氛围图会显得不够专业",
+      "technique": "深蓝背景+城市天际线剪影打底，右侧巨幅产品实拍，logo白色描边字体叠加半透光效，副标题烫金斜体",
+      "mechanism": "产品实拍的动感瞬间天然抓视觉注意力，一张图完成是什么品牌+这是什么项目+氛围调性三重信息传递",
+      "rating": 4
+    },
+    {
+      "id": "tension-quote-card-dark",
+      "page_function": "洞察金句卡(TENSION定调页)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "campaign策略提案"
+      ],
+      "pick_when": "TA洞察/策略张力推导到关键结论时，需要一页把前面几页分析收口成好记的短句",
+      "skip_when": "数据论证页需要图表支撑时用这个纯文字卡会显得空洞无据",
+      "technique": "深色人物场景图打底压暗，居中金色描边矩形框内放3组对仗短句，左侧留白放TENSION小标题",
+      "mechanism": "矩形描边框把前文分析视觉收拢进容器，制造这就是最终结论的仪式感",
+      "rating": 4
+    },
+    {
+      "id": "hashtag-execution-idea-page",
+      "page_function": "话题执行创意页(Teaser/Launch/Sustain三段式)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign策略提案"
+      ],
+      "pick_when": "社媒campaign的具体执行创意展开，每个阶段需要单独一页讲清楚做什么+为什么+长什么样",
+      "skip_when": "纯策略/洞察页不需要这种标签+大字话题+配图的执行颗粒度",
+      "technique": "左上角小标签标注阶段类型，左侧大字号烫金话题文案作视觉锚点，下方执行说明小字，右侧配实拍/demo图",
+      "mechanism": "统一的阶段标签+大字hashtag+配图三段式让读者扫一眼就知道现在讲到campaign哪个阶段",
+      "rating": 4
+    },
+    {
+      "id": "brand-icon-reinterpret-narrative",
+      "page_function": "品牌资产重新诠释页(logo/符号叙事)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "campaign策略提案"
+      ],
+      "pick_when": "需要把品牌既有资产从装饰物升级为campaign核心叙事符号时，用连续2页做是什么→意味着什么的递进",
+      "skip_when": "品牌无独特可挖资产、或该资产本身认知度极低时",
+      "technique": "第一页提问式标题+罗列民间解读制造悬念；第二页直接衔接给出官方新解读+具象化使用场景，两页共享同一背景图",
+      "mechanism": "先摆出众说纷纭制造认知缺口，再由品牌一锤定音给出专属解读，完成一次认知反转",
+      "rating": 4
+    },
+    {
+      "id": "kv_multi_scene_convergence",
+      "page_function": "创意概念一图流展示",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign传播提案"
+      ],
+      "pick_when": "需要在一页内让客户/评审瞬间get创意核心动作,且已有多个应用场景插画待展示",
+      "skip_when": "创意本身抽象、没有具体视觉素材支撑时",
+      "technique": "深色背景+产品渲染图居中做视觉锚点，四角环绕四张不同场景的小插画，每张配一行短说明文字",
+      "mechanism": "居中大图建立视觉焦点，环绕小图靠重复同一动作、不同场景的手法形成视觉韵律",
+      "rating": 3
+    },
+    {
+      "id": "illustration_style_moodboard",
+      "page_function": "视觉风格参考板",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign传播提案"
+      ],
+      "pick_when": "需要向客户对齐KV/插画的视觉调性，用参考图代替空泛形容词",
+      "skip_when": "已进入正式设计执行阶段",
+      "technique": "左侧四行短标签(线条/结构/色彩/风格)+一句话描述，右侧网格排列多张外部参考插画，标注作者名+来源",
+      "mechanism": "把抽象的风格描述锚定到具体可视的第三方案例上，降低沟通偏差",
+      "rating": 3
+    },
+    {
+      "id": "communication_roadmap_pyramid",
+      "page_function": "传播路径图(分阶段占比+倒三角总纲)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "campaign传播提案"
+      ],
+      "pick_when": "需要一页说清campaign怎么分几波打、每波占多少预算/声量权重、目标受众和渠道分别是什么",
+      "skip_when": "campaign只有单一阶段/单一渠道时",
+      "technique": "顶部倒三角形包裹campaign总slogan，下方三列对应三阶段，标注百分比权重+日期区间，六行矩阵式填充",
+      "mechanism": "倒三角形状传达层层递进/收口聚焦的视觉隐喻，六行矩阵强制想清楚每个阶段的目标/信息/受众/渠道/物料",
+      "rating": 3
+    },
+    {
+      "id": "message_house_by_audience",
+      "page_function": "分受众信息屋(Message House)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign传播提案"
+      ],
+      "pick_when": "需要说明同一个campaign主张，针对不同类型媒体/KOL要拆出不同的沟通角度和对应KOL人选",
+      "skip_when": "所有渠道/KOL的沟通角度完全一致时",
+      "technique": "顶部三角屋顶造型托住campaign总slogan，下方三列对应三类媒体，每列标题+ANGLE要点列表+底部KOL头像图标",
+      "mechanism": "屋顶造型隐喻一个屋檐下的多根支柱，直观传达统一主张、分众表达的结构",
+      "rating": 2
+    },
+    {
+      "id": "page-051",
+      "page_function": "多方案并列选优页(Slogan Option)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "需要给客户/老板呈现3个平行创意选项供拍板，且每个选项已有配套支持文案",
+      "skip_when": "只有一个方案定案，或方案间无需对比选择",
+      "technique": "同一张背景图反复复用+纯黑半透明蒙层压暗，左上角双行标签，中央超大号slogan主标题，三页版式100%复用只换文案",
+      "mechanism": "统一背景降低认知负荷，让评审者聚焦在slogan文案本身的差异对比上",
+      "rating": 3
+    },
+    {
+      "id": "page-052",
+      "page_function": "生活洞察→创意钩子过渡页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "campaign idea需要一个共情式社会观察做引子，让创意落点显得被发现而非被发明",
+      "skip_when": "创意本身足够自证，不需要额外的情绪铺垫",
+      "technique": "左侧一张强氛围实景图，右侧深灰蒙层上叠三段递进文字，下一页承接同一实景图展开该道具的多种新用途",
+      "mechanism": "先建立共同体感受的情绪共鸣，再把物理道具重新语义化为campaign载体",
+      "rating": 4
+    },
+    {
+      "id": "page-053",
+      "page_function": "灵感参考素材墙(纯图无文字)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "需要向团队/客户展示某个视觉概念的可复用参考案例，建立共同视觉语言",
+      "skip_when": "正式对外提案，或概念已经足够清晰不需要举例佐证",
+      "technique": "左上角小标题点出该页素材的共性手法，主体是6-9张不规则大小拼贴的案例图，不写任何说明文字",
+      "mechanism": "省去解释性文字，用密集同类案例并置的方式让团队快速对齐这类视觉语言长什么样",
+      "rating": 3
+    },
+    {
+      "id": "page-054",
+      "page_function": "UGC/KOL联动机制拆解页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "campaign需要说明具体怎么调动KOL+素人产出内容，且有多条并行玩法需要清晰区分",
+      "skip_when": "只有单一传播动作，不需要区分角色/玩法",
+      "technique": "顶部大标题点出角色定位+核心机制，下方嵌可播放视频缩略图+实拍图集，底部两栏并列拆解具体玩法",
+      "mechanism": "把抽象的内容共创机制拆成具体、可执行、可复制的动作模板，配真实素人产出截图做fact base",
+      "rating": 4
+    },
+    {
+      "id": "page-055",
+      "page_function": "封面·横幅式品牌相册拼接",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "封面需要在标题揭晓前先建立品牌的生活方式感/调性认知，且有大量往期活动素材可用",
+      "skip_when": "品牌调性需要克制/高端质感，或素材量不足撑不满",
+      "technique": "上下各一条等高宫格实景照片带无间隙拼接，中间黑底横条压title，无任何图形装饰全靠照片密度撑场",
+      "mechanism": "用真实活动照片的信息密度替代设计感包装，快速建立品牌认知，比纯文字封面更有说服力也更省成本",
+      "rating": 3
+    },
+    {
+      "id": "insight_contrast_split",
+      "page_function": "洞察对比页(自我认知vs他者认知反转)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "节庆campaign提案"
+      ],
+      "pick_when": "需要用表面认知→深层真相的反转结构建立策略洞察合法性",
+      "skip_when": "洞察本身很直白、不需要反转张力时",
+      "technique": "黑底白字给出显性认知，纯文字过渡页，再用数据+社媒截图给出隐性真相，最后精炼一句荧光高亮收束",
+      "mechanism": "反转结构制造认知落差，落差感=说服力；数据+真实截图降低受众对策略推导的怀疑",
+      "rating": 4
+    },
+    {
+      "id": "competitor_matrix_shared_tech",
+      "page_function": "竞品同类产品横向对比表(暗示品牌唯一性)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "节庆campaign提案",
+        "品牌年度提案"
+      ],
+      "pick_when": "需要证明竞品都在拼参数同质化，我方有不可复制的资产",
+      "skip_when": "自家没有真正独有科技/资产支撑差异化论点时",
+      "technique": "黑底白字表格，横轴多个竞品品牌，纵轴产品图/价格/核心卖点/核心科技，最后一行用高亮点出竞品致命弱点",
+      "mechanism": "表格的横向可比性让竞品同质化判断显得客观，最后一行高亮是全表唯一彩色，视线自然聚焦到论点上",
+      "rating": 4
+    },
+    {
+      "id": "brand_ip_roadmap_gantt",
+      "page_function": "campaign沟通节奏路线图(品牌自有IP复用版)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "节庆campaign提案"
+      ],
+      "pick_when": "campaign依托一个连续多年的品牌自有IP滚动展开，需要一页说清多阶段×多层执行细节的排布",
+      "skip_when": "campaign是单次性、无历史IP积累、内容层级少时",
+      "technique": "左侧固定多个横向分类标签，顶部大标题条，中部5节点时间轴用圆点+虚线连接，下方每行填对应阶段具体物料",
+      "mechanism": "甘特图式左标签+时间轴组合把战略节奏和资产清单压缩进一屏，评审能同时看到时间推进和交付物密度",
+      "rating": 4
+    },
+    {
+      "id": "wordplay_product_matrix_poster",
+      "page_function": "谐音梗全产品线矩阵海报页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "节庆campaign提案",
+        "促销campaign提案"
+      ],
+      "pick_when": "big idea基于一个动词/词根的谐音扩展，需要把全线SKU统一嫁接进这个语言系统来证明创意可规模化复用",
+      "skip_when": "big idea不具备可拆解的词根扩展性，或产品线单一时",
+      "technique": "网格布局，每张卡片=产品名+谐音短句+一句产品功能点+产品图，统一排版模板但每张谐音字不同",
+      "mechanism": "统一模板+变量替换的可生成性视觉证明了big idea的延展弹性，比口头说延展性强更有说服力",
+      "rating": 4
+    },
+    {
+      "id": "manifesto_black_circle",
+      "page_function": "品牌宣言/态度页(负空间圆环强调)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "节庆campaign提案",
+        "品牌年度提案"
+      ],
+      "pick_when": "需要在策略/创意转折点插入一页纯情绪化的态度宣言，为后续big idea定调，且品牌logo本身含可视觉化元素",
+      "skip_when": "品牌没有天然可延展的图形符号，或宣言内容本身空洞",
+      "technique": "全黑背景，左侧小字灰白诗化短句排比句式，右侧巨大灰色圆环呼应logo，圆环中心镶嵌核心slogan",
+      "mechanism": "圆环是logo字母的放大复用，形成万物归于品牌符号的潜意识绑定，负空间聚焦文字比满版文字页更有仪式感",
+      "rating": 5
+    },
+    {
+      "id": "brand_wheel_4quadrant",
+      "page_function": "品牌钻石/品牌轮盘(Brand Ideal四象限模型)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "需要一页浓缩呈现品牌完整人格框架，作为后续所有campaign的锚点页",
+      "skip_when": "受众是执行层/不关心品牌哲学，或该模型客户此前已批准无需重复展示",
+      "technique": "整页纯色底黑白反差，四象限九宫格布局，正中心悬浮方框写品牌一句话主张，下方再接三行长条横向占满宽度",
+      "mechanism": "四象限对角布局形成理性-感性与内在-外在两条轴线，中心悬浮框像磁极把信息收束成一句话结论",
+      "rating": 4
+    },
+    {
+      "id": "portfolio_role_matrix",
+      "page_function": "产品组合角色矩阵表",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "多SKU/多产品线品牌需要向客户说明每条产品线在组合里的战略定位及各自渠道打法",
+      "skip_when": "单一产品/单一SKU的campaign，或该表格信息已在别处以更精简形式呈现过",
+      "technique": "左侧竖排色块标签对角撞色三角形装饰，右侧六列表格(品牌家族/角色/变体/渠道/KPI/支持)逐行对应",
+      "mechanism": "矩阵表把产品-角色-渠道-指标四种异构信息压缩进同一个可扫读的表格，避免策略文字散落导致执行走偏",
+      "rating": 4
+    },
+    {
+      "id": "challenge_to_opportunity_bridge",
+      "page_function": "挑战→机会转译桥接页(叠加强化关键词贴纸)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "策略从诊断过渡到主张的关键转折点，需要让客户直观看到问题如何被转译成打法的逻辑映射",
+      "skip_when": "挑战与机会数量不对等/无法一一映射时",
+      "technique": "左列挑战条目，居中箭头指向右侧同高度机会条目三行对应；后一页相同版式额外叠加旋转贴纸覆盖机会文字",
+      "mechanism": "箭头+同行对齐制造因果映射的强逻辑感，两张几乎相同的页面模拟PPT动画的渐强效果",
+      "rating": 4
+    },
+    {
+      "id": "brand_calendar_gantt_grid",
+      "page_function": "年度品牌传播日历(甘特/网格混合)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "需要一页展示全年12个月×多维度的排布全景，给客户一眼看清全年打法节奏与资源分配",
+      "skip_when": "campaign数量少于3个/时间跨度短于一季度",
+      "technique": "顶部横向12个月，左侧纵向五个维度行，用不同深浅色块横跨对应月份宽度表示campaign持续时长",
+      "mechanism": "横轴时间+纵轴维度的网格本质是甘特图变体，色块宽度直接编码持续时长这一信息",
+      "rating": 4
+    },
+    {
+      "id": "kol_content_angle_matrix",
+      "page_function": "KOL内容角度矩阵(选号逻辑+话题标签+文案demo三层叠加)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "需要向客户展示具体到选什么类型KOL+说什么话题+发什么样文案的执行颗粒度",
+      "skip_when": "campaign仍在早期概念阶段/KOL策略尚未确定人群画像时",
+      "technique": "四层横向表格自上而下收窄聚焦：KOL选择→受众关注焦点→Communication Message分类→Content Angle Demo带话题标签",
+      "mechanism": "从人群画像到具体文案的层层收窄结构让抽象的媒介策略最终落地成可复制粘贴的具体话术",
+      "rating": 4
+    },
+    {
+      "id": "brand-positioning-canvas-6row",
+      "page_function": "品牌定位画布(六层递进)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "需要一页完整呈现品牌定位的全部支撑逻辑，给客户一次性看全定位画布",
+      "skip_when": "定位要素还未收敛/单点论证场景，六层堆一页会信息过载",
+      "technique": "左侧6个色块作为行标签，右侧对应6个说明框对齐，双语中英文堆叠，行高均匀切分整个画布",
+      "mechanism": "左标签+右内容的表格化视觉降低认知负荷，等高分行让六层要素显得平行且完整；与已入库的'品牌屋框架单表呈现'(重庆精酿)是同一大类的两种独立执行手法，互为对照",
+      "rating": 3
+    },
+    {
+      "id": "competitor-timeline-matrix",
+      "page_function": "竞品全年传播动作时间轴矩阵",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案",
+        "竞品分析"
+      ],
+      "pick_when": "需要展示单个竞品全年在多渠道的密集动作分布，让客户直观感受竞品声量节奏和空白窗口",
+      "skip_when": "只需对比单一维度时，泳道矩阵会显得过重",
+      "technique": "顶部月份刻度做时间轴主线，左侧5个色块泳道标签，每个月份下方插入实拍图+说明文字气泡标注具体动作",
+      "mechanism": "时间轴+泳道是经典甘特图变体，一眼看出竞品声量集中在哪几个月/哪个渠道",
+      "rating": 3
+    },
+    {
+      "id": "competitor-summary-comparison-table",
+      "page_function": "竞品对比总表",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案",
+        "竞品分析"
+      ],
+      "pick_when": "看完逐个竞品深挖页后，需要一页把所有竞品拉平对比做收尾总结",
+      "skip_when": "竞品数量>5个或维度>8个时表格会过密",
+      "technique": "圆角矩形单元格拼成表格(非PPT原生表格控件)，本品放最后一行做锚点对比，价格标注精确便于横向比价",
+      "mechanism": "用形状拼表格换取更灵活的配色/圆角/间距控制，制造设计过而非excel贴图的观感",
+      "rating": 4
+    },
+    {
+      "id": "campaign-phase-bracket-roadmap",
+      "page_function": "创意主张三阶段传播路线图",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "把从brand truth到最终落地方案的整条逻辑链条在一页里穿起来，证明创意不是拍脑袋而是层层推导出来的",
+      "skip_when": "阶段少于2个或逻辑链条本身还没理顺时",
+      "technique": "左侧竖排色块做逻辑层级标签，顶部三角形色块+时间标注横向分栏，中间嵌套多层组合承载具体campaign动作色块",
+      "mechanism": "纵轴讲逻辑深度、横轴讲时间阶段，二维矩阵把策略推导和执行排期同时可视化",
+      "rating": 4
+    },
+    {
+      "id": "trio_purpose_pillar",
+      "page_function": "三支柱目标/purpose横向对比页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "需要把brief拆出的3个并列诉求/目标可视化为同权重卡片，供后续论证依次呼应",
+      "skip_when": "3个诉求之间有主次或因果关系时",
+      "technique": "满版背景图+3等分竖向卡片，卡内顶部小圆角标签+短横线分隔+bullet，卡片左右留白对称、纵向居中",
+      "mechanism": "等宽等距三分制造并列不偏袒的视觉暗示，配合顶部关键词标签让读者3秒抓住每列主张",
+      "rating": 4
+    },
+    {
+      "id": "competitor_grid_freeform",
+      "page_function": "竞品快速扫描页(不等大网格)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案",
+        "brief"
+      ],
+      "pick_when": "多个竞品需要一屏放完且各竞品素材图比例不一致时",
+      "skip_when": "竞品数量>6个或需要逐项参数对比时",
+      "technique": "全页拼贴多张产品图尺寸不强行统一，按视觉重心手动摆位，每组图片下配一条关键词标签条",
+      "mechanism": "不规则拼贴模拟货架扫视的真实浏览体验，标签条把杂乱图片快速归类锚定",
+      "rating": 3
+    },
+    {
+      "id": "insight_binary_contrast",
+      "page_function": "洞察二元对比页(拉格vs白啤动作对比)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "需要用一个记忆点强反差句式亮出核心洞察，作为后续campaign concept的引爆点",
+      "skip_when": "洞察本身不是二元对立结构，或对比双方不对称时",
+      "technique": "满版图左右对称各占一半，左右各放反义短句，大字号居中放置，最底部单独一段收束升华句横跨全宽",
+      "mechanism": "左右镜像+反义词对仗制造记忆锚点，收束句把二元对比升华成品牌主张完成论证闭环",
+      "rating": 5
+    },
+    {
+      "id": "kv_creative_manifesto",
+      "page_function": "品牌宣言/manifesto大段独白页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "创意概念定稿后需要用一段有节奏感的宣言文案说服客户这就是我们要讲的故事",
+      "skip_when": "还处于策略推导阶段、尚未定稿创意概念时",
+      "technique": "左侧文本框放10余行短句manifesto每2-4句一个意群用空行分段，右侧配一张产品/场景大图形成左文右图对页布局",
+      "mechanism": "manifesto文体靠短句+留白制造朗读节奏感，是提案里少数脱离bullet逻辑、允许情绪化表达的页面",
+      "rating": 4
+    },
+    {
+      "id": "kol_seeding_matrix_3type",
+      "page_function": "KOL种草口径矩阵页(多角色x多话术)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌campaign提案"
+      ],
+      "pick_when": "需要向客户展示不同KOL类型/不同campaign节点各自的具体发文口径草稿，证明执行层已经想细",
+      "skip_when": "campaign节点少于2个或KOL类型未细分时",
+      "technique": "多列对应多个campaign节点x每列一张示意图+一段完整的模拟KOL文案含话题标签，列顶部小标签条区分节点名",
+      "mechanism": "用已经写好的样文代替抽象的内容方向说明，让客户能直接感知最终物料的语气和长度",
+      "rating": 4
+    },
+    {
+      "id": "media_kol_data_matrix_table",
+      "page_function": "媒体KOL投放效果总表",
+      "domain": [
+        "营销品牌",
+        "社媒传播"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign结案报告"
+      ],
+      "pick_when": "结案报告需要一次性展示所有合作媒体/KOL的发布时间、平台、阅读、互动量，作为传播规模的硬证据",
+      "skip_when": "提案/预算类deck不该用；KOL数量少于5个时用表格反而单薄",
+      "technique": "黑底白字表格，5列(账号/平台/时间/阅读/互动)，行按账号分组；表格右下角单独放大号数字汇总总指标，星标高亮表现最突出的一行",
+      "mechanism": "原始数据表格保留可信度，末尾大号汇总数字给忙碌读者一眼结论，星标制造视觉锚点",
+      "rating": 4
+    },
+    {
+      "id": "media_case_deep_dive_timeline",
+      "page_function": "单个重点媒体合作深度案例·时间轴呈现",
+      "domain": [
+        "营销品牌",
+        "社媒传播"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "campaign结案报告"
+      ],
+      "pick_when": "想突出2-3个战略级媒体合作伙伴的价值，证明预算花在刀刃上",
+      "skip_when": "所有媒体贡献相近、无需单独拎出来讲的情况",
+      "technique": "页面顶部横向时间轴，下方对应每个节点贴发布内容的手机截图缩略图；右上角放该媒体品牌logo，底部配总结价值的文字",
+      "mechanism": "时间轴把碎片化的多次发布串成一条持续种草的叙事线，比孤立列表更能体现长期陪伴式传播",
+      "rating": 4
+    },
+    {
+      "id": "quickly_recap_numbered_photo_page",
+      "page_function": "活动实况快速回顾·编号照片页",
+      "domain": [
+        "营销品牌",
+        "活动执行"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign结案报告"
+      ],
+      "pick_when": "结案报告开篇需要用真实活动照片快速建立信任感，替代冗长文字描述",
+      "skip_when": "提案deck没有实拍素材时不能硬凑",
+      "technique": "左上角小圆形logo+标题，右上角大号数字页码贯穿一组页面制造序列感，主体全屏实景照片叠加橙色大字标题+说明",
+      "mechanism": "数字编号让读者潜意识把连续几页当作一步步看完整个故事，照片全出血+文字叠加是杂志排版手法",
+      "rating": 4
+    },
+    {
+      "id": "one_page_campaign_wrapup",
+      "page_function": "campaign一页纸总结(结案报告收尾前置汇总页)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "campaign结案报告"
+      ],
+      "pick_when": "结案报告需要一张万能截图页——甲方老板只看一页就能转发汇报用",
+      "skip_when": "内容体系简单、全文本就10页以内时没必要再压缩",
+      "technique": "顶部标题+摘要横跨全宽；左侧竖版大图拼贴现场照片；中间复用Roadmap图表+两个大号终极KPI；右侧要点框配小图组",
+      "mechanism": "反向摘要页，把全篇最重要的3类证据压缩进一屏，服务于结案报告最终会被转发/单独截图使用的场景",
+      "rating": 3
+    },
+    {
+      "id": "key_learnings_four_category_recap",
+      "page_function": "复盘总结页·四维度经验沉淀",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "campaign结案报告"
+      ],
+      "pick_when": "结案报告结尾需要体现不只是汇报数字，还有面向下一次的方法论沉淀",
+      "skip_when": "一次性活动无需持续复盘、或客户明确只要数据不要建议时",
+      "technique": "四个色块标题，每块下方虚线框内2-4条勾选式短句，每句先讲做得好的地方再补未来可以...的建议",
+      "mechanism": "勾选符号统一给每条论点盖章已验证成立的视觉权威感，固定句式既不否定甲方过往投入又留出续约钩子",
+      "rating": 4
+    },
+    {
+      "id": "phase_divider_black_bug",
+      "page_function": "章节转场页·纯黑极简过渡",
+      "domain": [
+        "营销品牌",
+        "通用"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "campaign结案报告"
+      ],
+      "pick_when": "内容量大、需要明确切分大章节时，给读者呼吸点",
+      "skip_when": "总页数少于15页时没必要用整页做转场",
+      "technique": "纯黑背景，仅左侧或居中放品牌小圆logo+大写无衬线粗体白字标题，无其他任何元素",
+      "mechanism": "极简黑屏在满屏数据表格和照片之间制造强烈对比，起到翻篇的生理提示作用",
+      "rating": 3
+    },
+    {
+      "id": "value_evaluation_model_radar",
+      "page_function": "商业价值评估模型总览",
+      "domain": [
+        "互联网产品",
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "产品营销方案"
+      ],
+      "pick_when": "产品需要证明自己可被量化衡量、说服客户其效果可对比可追溯时",
+      "skip_when": "产品尚无成熟评估体系、指标权重编不出来时",
+      "technique": "四象限权重占比+英文缩写命名法包装为专有名词模型，用同心圆/矩阵重复展示强化记忆",
+      "mechanism": "赋予直白的KPI体系一个好记的品牌化名字和固定权重结构，让评估本身变成产品卖点",
+      "rating": 4
+    },
+    {
+      "id": "incentive_mode_tricomparison",
+      "page_function": "三种激励模式并列对比选择",
+      "domain": [
+        "互联网产品",
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "产品营销方案"
+      ],
+      "pick_when": "同一产品下有多种可选付费/激励模式，需帮客户按诉求分流选型时",
+      "skip_when": "产品只有单一定价/模式，无需对比选择",
+      "technique": "三栏并排，每栏固定给出激励规则+适用诉求+参与门槛+关注指标四要素",
+      "mechanism": "把抽象的选套餐转成结构化决策矩阵，客户能按自己诉求自助定位，降低销售解释成本",
+      "rating": 3
+    },
+    {
+      "id": "case_industry_benchmark_bar",
+      "page_function": "案例效果against行业中位数柱状对标",
+      "domain": [
+        "互联网产品",
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "产品营销方案"
+      ],
+      "pick_when": "案例结果单独看无意义，需要行业坐标系才能证明好时",
+      "skip_when": "案例数据本身是绝对值且量级足够震撼，无需相对对标",
+      "technique": "本案例得分vs行业最高/中位/最低三档基准并列柱状图，附中位数定义脚注，结论一句话点出排位",
+      "mechanism": "单一数字缺乏参照系，植入行业分布后同一个数字瞬间获得排位感，说服力从我们做了升级为我们比同行好",
+      "rating": 4
+    },
+    {
+      "id": "product_matrix_x_combination",
+      "page_function": "产品组合式命名矩阵(全民任务X话题/X品牌号)",
+      "domain": [
+        "互联网产品",
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "产品营销方案"
+      ],
+      "pick_when": "核心产品需要与其他既有产品模块自由组合、体现可灵活拼装的平台化能力时",
+      "skip_when": "产品是单点独立能力，不存在组合关系时",
+      "technique": "用A X B的乘号命名建立组合话术体系，每个组合单独开一页展示专属路径图和适用诉求",
+      "mechanism": "乘号暗示化学反应而非简单叠加，让客户感知平台是可自由排列组合的能力矩阵",
+      "rating": 3
+    },
+    {
+      "id": "brand-mnemonic-triad",
+      "page_function": "创意母题的三重人格化拆解",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "campaign核心概念需要在多触点反复复用时，把一个抽象品牌主张拆成3个具体、可视觉化、可各自成篇的子人格/子概念",
+      "skip_when": "campaign只有单一触点或单一物料，拆三重反而稀释预算和记忆点",
+      "technique": "大概念拆解为三种子人格各绑定一名代言人，再让三重人格贯穿病毒视频脚本、小游戏模式、限定包装设计",
+      "mechanism": "三分法比单一大概念更容易被不同受众各自代入，也让预算摊到多个可独立传播的子内容单元上",
+      "rating": 4
+    },
+    {
+      "id": "kol-verbatim-script-slide",
+      "page_function": "KOL口播逐字稿展示页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "提案里要展示达人共创内容的具体创意，且客户需要判断台词是否贴合品牌调性",
+      "skip_when": "达人内容尚未定稿，或客户只关心触达量不关心具体内容质感",
+      "technique": "把KOL的完整口播文案逐字打在页面上，配真实短视频截图，而不是用一句话概括创意方向",
+      "mechanism": "逐字稿让客户能直接评估内容的梗是否成立、品牌口播是否自然植入，比抽象描述更有说服力",
+      "rating": 4
+    },
+    {
+      "id": "storyboard-vo-caption-grid",
+      "page_function": "病毒视频分镜+旁白字幕八宫格",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "要向客户交付一支还未拍摄的病毒视频的完整创意，且视频是叙事型/剧情反转型",
+      "skip_when": "视频只是常规产品广告或素材已实拍完成可直接放成片链接",
+      "technique": "2x4共8格网格图，每格一个关键分镜画面+场景描述文字，2-3格叠加VO旁白台词高亮，最后一格放落版信息",
+      "mechanism": "8格刚好覆盖一支短视频的起承转合，客户不用看成片就能想象出完整叙事节奏",
+      "rating": 4
+    },
+    {
+      "id": "brand_delivery_partner_crossover_tvc",
+      "page_function": "品牌×外卖平台跨界TVC分镜叙事",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "品牌需要借力高频生活服务类APP做跨界联名，且能把平台卖点与球星球风做类比映射时",
+      "skip_when": "品牌本身无强跨界资源，或类比关系牵强易显尬",
+      "technique": "把球员球风关键词与平台核心卖点做一一映射，分别产出TVC分镜脚本，结尾统一收口到品牌+campaign line",
+      "mechanism": "球星人设与产品卖点的强类比降低品牌信息植入的生硬感，两个品牌的核心资产互相借力放大声量",
+      "rating": 4
+    },
+    {
+      "id": "delivery_rider_ootd_ooh",
+      "page_function": "外卖骑手工装/装备变身移动OOH设计页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "需要把品牌联名视觉低成本铺满城市毛细血管、且合作方有大量线下移动人力/车辆资源时",
+      "skip_when": "合作方无这类实体触点资源，或该手法与品牌调性不符",
+      "technique": "把外卖员的头盔、雨衣、餐箱、电动车全套改造成品牌联名视觉，配细节图展示",
+      "mechanism": "把常规硬广媒介预算转化为免费的移动曝光渠道，骑手高频出现在硬广难以覆盖的毛细血管场景",
+      "rating": 4
+    },
+    {
+      "id": "celebration_pose_ugc_challenge_mechanic",
+      "page_function": "球迷庆祝动作UGC挑战玩法机制页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "品牌洞察落在一个可复刻的身体动作/行为符号上，且目标人群有晒图/模仿的社交动机时",
+      "skip_when": "品牌资产/洞察不是行为符号型，强行加UGC挑战会显得空洞",
+      "technique": "从球星标志性庆祝姿势提炼可复刻动作，设计阶梯激励机制，配真人KOL试摆动作视频截图做示范",
+      "mechanism": "低门槛模仿动作天然适合短视频传播，票选机制制造二次传播动力，头部奖励对铁杆粉丝有极强号召力",
+      "rating": 4
+    },
+    {
+      "id": "balcony_tifo_street_takeover",
+      "page_function": "社区阳台TIFO快闪街区包装页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "品牌核心视觉资产是可批量复制的图形/海报，且有本土潮流街区资源可做一夜快闪包装时",
+      "skip_when": "品牌视觉资产不适合大面积重复铺陈，或缺乏合适的高话题度实体场地",
+      "technique": "把品牌定制海报大面积挂满本土潮流街区建筑立面+阳台+过街天桥，同步在人行道涂装品牌配色",
+      "mechanism": "真实生活场景被品牌视觉包围式占领，制造猎奇感和可拍照打卡属性，比常规户外广告更具社交货币",
+      "rating": 4
+    },
+    {
+      "id": "anthem_relay_singalong_event",
+      "page_function": "球迷圣歌接力合唱事件玩法三步页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "赞助对象有独特的粉丝文化符号，且品牌希望做情感浓度更高而非纯促销的传播事件时",
+      "skip_when": "赞助对象缺乏这类强情感文化符号，或时间周期太短无法support接力发酵",
+      "technique": "三步递进式结构：明星发起挑战邀约→全网接力合唱→票选最佳送现场大奖，列举真实衍生UGC案例佐证扩散效果",
+      "mechanism": "队歌是粉丝身份认同的最强符号，接力合唱机制天然带社交裂变属性，终极奖励驱动持续参与",
+      "rating": 4
+    },
+    {
+      "id": "campaign_storyboard_black_white",
+      "page_function": "创意内容分镜脚本(storyboard)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策",
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "提案方是内容/创意代理商，需要让客户在纸面上看懂一支social video的完整叙事而非只给概念",
+      "skip_when": "客户更关心执行体系/KPI/媒介排期而非单条内容细节",
+      "technique": "黑白线稿分镜从6宫格起步，后续同一分镜复用为8/12/15宫格不断叠加分镜数量做加密展示",
+      "mechanism": "分镜脚本是影视行业专业语言，用在提案PPT里能让非专业客户直观看到成片效果",
+      "rating": 3
+    },
+    {
+      "id": "kol_persona_borrow_legal_judge",
+      "page_function": "跨界KOL人设借势·产品规则拟人化包装",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "产品/campaign有一组不成文规矩需要传播，且能找到与该细节强相关的破圈跨界KOL",
+      "skip_when": "品牌调性严肃、无法承受玩梗；或该KOL人设与产品核心利益点关联牵强",
+      "technique": "借专业身份KOL人设包装，把使用场景小摩擦写成判词体，配职业造型道具，做成系列短视频+限定罐文案",
+      "mechanism": "严肃身份与娱乐场景的错位制造反差幽默，把品牌想说教的内容包装成用户愿意主动传播的娱乐内容",
+      "rating": 3
+    },
+    {
+      "id": "product_pack_as_fan_credential",
+      "page_function": "产品包装即球迷身份认证物料",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "整合营销传播(IMC)计划"
+      ],
+      "pick_when": "品牌与IP方联名，需要展示包装如何承载粉丝圈层身份认同而非单纯好看",
+      "skip_when": "产品无强IP联名基础，或该品类用户对身份感无诉求",
+      "technique": "礼盒复刻场馆造型、挂牌周边、罐身印勋章图案，明确标注专属身份象征",
+      "mechanism": "把包装从容器升级为可被展示、可被摄影发圈的身份符号，激活粉丝的收藏欲和晒单欲",
+      "rating": 3
+    },
+    {
+      "id": "brief_recap_3col",
+      "page_function": "Brief复盘三段式",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "开篇需要向客户对齐全球主张→本地化→传播落点三层递进逻辑时",
+      "skip_when": "brief内容单一无需分层，或客户已充分知悉背景可跳过复盘",
+      "technique": "三胶囊标题横向并列，每列下再分英文原文引号句→中文小结→加粗结论三层文字，白底黑框卡片嵌在色底上",
+      "mechanism": "三列并列天然暗示因果递进，胶囊标题制造扫读锚点，白卡片对色底形成图底反差聚焦阅读区",
+      "rating": 4
+    },
+    {
+      "id": "competitor_keyword_tag_teardown",
+      "page_function": "竞品案例关键词标签拆解",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "推导策略"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "需要横向对比多个竞品campaign的手法归纳，且素材是零散campaign截图时",
+      "skip_when": "只有单一竞品或截图本身信息密度已足够不需再提炼标签",
+      "technique": "竞品截图配白底圆角胶囊关键词标签悬浮在图片下沿，右侧配深色矩形块写洞察小结",
+      "mechanism": "胶囊标签把杂乱截图快速归类打标，读者3秒内get到品牌打法的关键词矩阵",
+      "rating": 4
+    },
+    {
+      "id": "abc_choice_insight_reveal",
+      "page_function": "A/B二选一悬念→C创造新可能的策略揭示页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "推导策略",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "campaign核心主张本身就是跳出非此即彼选项时，用于策略洞察到创意概念的转折点",
+      "skip_when": "campaign主张不含二元对立结构，硬套会显得牵强",
+      "technique": "左侧巨大字号'A or B'配手写体注释制造选择焦虑，右下角巨大字'我选C!!!'配右上角洞察分析文字",
+      "mechanism": "先制造二选一的紧张感，再用视觉最大字号的C制造顿悟感，让创意主张本身在页面结构上被表演出来",
+      "rating": 5
+    },
+    {
+      "id": "storyboard_choice_branch_page",
+      "page_function": "视频脚本分镜·选择分支叙事页",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析",
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "视频脚本需要向客户展示剧情如何具体呼应campaign主张，且剧情本身设计成选择题结构时",
+      "skip_when": "视频脚本已有完整分镜脚本文档，PPT只需引用链接而非逐页展示",
+      "technique": "左侧剧情梗概，右侧仿播放器截图卡片内嵌入选项按钮，模拟视频UI，手写体贯穿全系列强化选择母题",
+      "mechanism": "仿播放器UI让静态PPT页产生这是在看视频的错觉，选项按钮把品牌策略语言直接嫁接进故事画面",
+      "rating": 4
+    },
+    {
+      "id": "curiosity_photo_grid_manifesto",
+      "page_function": "好奇心主题图片墙宣言页(系列)",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "说服决策"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "需要用纯视觉情绪页连续论证品牌精神的多重侧面，出现在策略转向创意的过渡段",
+      "skip_when": "客户是强数据导向、对纯情绪页容忍度低的甲方，或页数预算紧张",
+      "technique": "同主题跨界产品/场景图片按网格拼贴，图片间用手绘荧光曲线连接，固定开头+变化结尾形成系列排比句式",
+      "mechanism": "固定开头+变化结尾的排比句式让系列页产生韵律感和记忆点，荧光连接线视觉化缝合无关意象",
+      "rating": 4
+    },
+    {
+      "id": "wave_overview_table",
+      "page_function": "campaign波次总览表",
+      "domain": [
+        "营销品牌"
+      ],
+      "intent": [
+        "陈述分析"
+      ],
+      "doc_type_seen": [
+        "品牌equity campaign提案"
+      ],
+      "pick_when": "多波次campaign需要一页总结每波的目标/动作/资产/媒介/线下打法，方便客户快速审阅全案骨架",
+      "skip_when": "campaign只有单一波次或各要素已在前文逐页展开无需再汇总",
+      "technique": "左列深色底五个要素标签固定，右列浅色底对应内容横向对齐成表格，顶部大字英中双语campaign slogan压顶",
+      "mechanism": "深浅双色分栏形成天然表格阅读动线，不需要绘制表格线",
+      "rating": 3
+    }
+  ],
+  "change_log": [
+    {
+      "version": 1,
+      "reviewer": "系统迁移(2026-07-01·补L7铁律缺口)",
+      "change": "补建version/change_log机制起点（此前历次扩容见git log，不在此重建）·现存101张卡",
+      "card_count": 101
+    }
+  ],
+  "version": 1
+}
