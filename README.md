@@ -79,27 +79,110 @@ ppt-master 本身定位是通用美学 deck 引擎（19 种视觉风格：杂志
 4. **策略工作流的五阶段引导对齐**：把 ppt-master "八项确认"这套人机协商的 UX 骨架，延展成一整套面向咨询叙事的策略工作流——议题树 / 假设树（MECE）、storyline 论点证据结构、三道审查质量门。
 5. **chaideck 自成长飞轮**：持续拆解真实成品 deck 入六类资产库 + 盲拆进化，让方法论随使用越积越准——这是 ppt-master 没有的、我们新长出来的能力。
 
+## 工作流详解
+
+PPT Engine 不是一个"brief 进、pptx 出"的黑盒，而是两条各自 fail-closed 的工作流接力，中间站着 chaideck 这个自成长飞轮。
+
+### 策略工作流：五阶段，阶阶要过闸
+
+```
+模糊 brief
+   │
+   ▼
+① 判目的 ──────── 定 delivery_purpose（演讲 / 阅读 / 预读讲解）+ 论证 mode + 美学倾向
+   │   跟你逐项确认对齐，没对齐不往下走
+   ▼
+② 议题树 / 假设树（MECE）──── 把问题拆成互斥穷尽的子问题
+   │   跟你确认树的形状对不对
+   ▼
+③ 调研 ──────── 数字溯源 + 来源分类（客户给的 / 联网查的 / 行业常识），逐议题播报进展
+   │   跟你确认关键结论
+   ▼
+④ storyline ──────── 论点 + 一组证据 + framing + 节奏 + Part 章结构
+   │   按 Part 写，写完一个 Part 就摊给你确认，不会闷头写完整份才给你看
+   ▼
+⑤ 三道审查质量门 ──────── 机检 + 人审，任一道不过打回原阶段返工，绝不带病推进
+   │
+   ▼
+storyline 定稿 → 交棒制作工作流
+```
+
+### 制作工作流：定稿大纲 → 原生可编辑 pptx
+
+```
+storyline 定稿（大纲）
+   │
+   ▼
+① 搭大纲 ──────── 拆到逐页结构
+   ▼
+② 设计定稿 ──────── 风格光谱选定 + spec_lock 完整设计契约（配色 / 字体 / 图标 / 图片全部锁定）
+   │   跟你确认设计方向
+   ▼
+③ 逐页生产（一页一轮，绝不批量）
+      模板映射 → 生成 SVG → 渲染预览 → 硬门质检
+      质检不过 ──→ 打回本页重做，绝不带着问题进入下一页
+   ▼
+④ vendor 引擎导出 ──────── SVG → DrawingML，零栅格化验证
+   ▼
+交付：原生可编辑 .pptx
+```
+
+### chaideck：拆真实 deck 入库，方法论自己变强
+
+```
+真实成品 deck（投资人 deck / 咨询 deck 等）
+   │
+   ▼
+拆解入六类资产库（页型卡 / 表达手法卡 / 分析框架卡 / 数据色板 / 真实样本 / 行业知识）
+   │
+   ▼
+盲拆进化 ──────── 定期对已入库范例重新"零框架"拆解，比对新旧结论
+   │
+   ▼
+方法论可信值台账升级 ──────── 卡库 / 语感库随使用积累，越用越准
+```
+
+## 内置资料库都有什么
+
+开箱自带的是**方法论骨架**——已经建好结构、有起始内容，事实库 / 品牌库会随你使用逐步填充。
+
+| 目录 | 内容 | 规模 |
+|---|---|---|
+| [`exemplars/页型卡库.json`](exemplars/页型卡库.json) | 页型手法卡：每张卡记录 `page_function`（页面功能）/ `technique`（手法）/ `mechanism`（为什么有效）/ `pick_when` / `skip_when` / `rating` | 101 张 |
+| [`exemplars/表达手法卡.json`](exemplars/表达手法卡.json) | 文案表达手法卡：含六槽位结构性文案范式（章间桥 / 章小结 / 诊断收束 / ask 收尾 / 落幕 / 目录命名）+ 反模式（`anti_pattern`） | 142 张 |
+| [`exemplars/分析框架库.json`](exemplars/分析框架库.json) | 分析框架卡：AIPL、波特五力、SWOT 等成熟框架的结构化编码（`structure` / `pick_when` / `skip_when` / `mechanism`） | 88 个 |
+| [`exemplars/数据色板.json`](exemplars/数据色板.json) | 数据可视化配色方案（色系族） | 11 组 |
+| [`specs/PPT方法论/`](specs/PPT方法论) | 9 篇方法论文档（00 总纲 / 01 顶级 deck 共因与翻车雷区 / 02 页型手法精华 / 03 场景叙事结构 / 04 范本清单按场景 / 05 质量门与评估 / 06 高 stakes 难图实现 / 07 演讲版 vs 阅读版 / 08 deck mode 叙事骨架体系），每篇标注可信度分级（方法论编码强候选 / 真样本背书），不装作和拆真实 deck 验证过的结论一样确定 | 9 篇 + 修订日志 |
+| [`reinforce/deck_rules/`](reinforce/deck_rules) | 6 个机检模块：`rules.py`（数字必须带来源 / 标题论断式）、`client_tone.py`（拦"brief P3-4"这类内部工作语言泄漏到对客页面）、`storyline.py`（storyline 六条禁忌：主题式 / 缺 so-what / 含糊用语 / 太碎 / 没结尾 / 逻辑跳跃）、`svg_compat.py`（SVG→PPTX 导出兼容性黑名单）、`visual_review.py`（视觉缺陷结构化检查）、`font_embed.py`（字体嵌入授权检查） | 6 个规则模块 |
+| [`research_lib/真实样本/`](research_lib/真实样本) | 真实成品 deck 拆解范例（如 Airbnb 2009 融资 deck 逐页拆解）+ 行业知识库骨架 | — |
+| [`research_lib/开源拆解/`](research_lib/开源拆解) | ~30 个同类开源项目（AI PPT 生成器 / 图表库 / 文档解析等）的深度拆解笔记，方法论调研的原始依据 | ~30 篇 |
+
 ## 架构
-
-**两条工作流 + 一个飞轮**：
-
-- **策略工作流**——把模糊 brief 做成 storyline 定稿。五阶段 fail-closed：判目的（演讲 / 阅读 / 预读讲解三态）→ 议题树 / 假设树（MECE）→ 调研（数字溯源 + 来源分类）→ storyline（论点 + 证据 + framing + 节奏 + Part 章结构）→ 三道审查质量门。
-- **制作工作流**——把定稿大纲做成原生可编辑 `.pptx`。搭大纲 → 设计定稿（风格光谱 + spec_lock 完整设计契约）→ 逐页（模板映射 → 生成 SVG → 渲染 → 硬门，写一页渲一页检一页）→ vendor 引擎导出（零栅格化验证）→ 交付。
-- **chaideck**——拆解真实成品 deck 入六类资产库 + 盲拆进化，让范本库 / 语感库越用越准。
 
 **代码结构**：
 
 - `engine/` —— 确定性引擎：图表几何（`chart_shapes.py`）、财务模型（DCF/LBO/可比公司，`financial_models.py`）、SVG→pptx vendor 导出引擎（`svg2pptx/`）、图像 / 图标 / 演讲稿生成管线。
 - `reinforce/` —— 规则机检与状态：数字溯源 / 元叙述 / 对客调性等机检（`deck_rules/`）、设计契约锁（`spec_lock.py`）、deck 工作目录与状态、多角色策划团队、检索、chaideck 自成长飞轮（`evolution/`）。
 - `skills/` —— 三条工作流对应的 SKILL.md，设计为在支持 Agent Skills 的编码助手（如 Claude Code）里加载使用。
-- `specs/PPT方法论/` —— 沉淀下来的 PPT 方法论：顶级 deck 共因、页型手法、场景叙事、质量门标准、演讲版 vs 阅读版等。
-- `exemplars/` `research_lib/` —— 卡库骨架（页型卡 / 表达手法卡 / 分析框架卡）与方法论调研知识，开箱即用，事实 / 品牌库随使用自行填充。
+- `specs/PPT方法论/` —— 沉淀下来的 PPT 方法论（见上表）。
+- `exemplars/` `research_lib/` —— 卡库骨架与方法论调研知识（见上表）。
 
-## Skill 说明
+## 支持哪些 Agent 平台
 
-- **策略工作流**：brief → storyline 定稿。五阶段引导对齐：判目的 → 议题树/假设树 → 数字溯源调研 → storyline（论点+证据）→ 三道质检门。
-- **制作工作流**：定稿大纲 → 原生可编辑 `.pptx`。逐页生成 → 渲染 → 硬门，vendor 引擎零栅格化导出。
-- **chaideck**：拆真实成品 deck 入六类资产库 + 盲拆进化，方法论自成长飞轮。
+`skills/` 下的 SKILL.md 遵循纯 Markdown + YAML frontmatter 的 Agent Skills 格式，本质只要求宿主 agent 能做三件事：**读写文件、执行命令、支持多轮对话**。满足这三条的编码 agent 原则上都能跑，包括但不限于 Claude Code、Codex CLI、Cursor、VS Code + Copilot、Windsurf。
+
+**Claude Code（原生支持）**：Claude Code 会自动识别项目级 `.claude/skills/<name>/SKILL.md`。把本仓库的三个 skill 链接（或复制）进你的工作项目即可：
+
+```bash
+mkdir -p /path/to/your-project/.claude/skills
+ln -s /path/to/PPT-oss/skills/策略工作流   /path/to/your-project/.claude/skills/策略工作流
+ln -s /path/to/PPT-oss/skills/制作工作流   /path/to/your-project/.claude/skills/制作工作流
+ln -s /path/to/PPT-oss/skills/chaideck    /path/to/your-project/.claude/skills/chaideck
+```
+
+重启 Claude Code 后，输入 `/策略工作流`（或直接用自然语言描述需求，触发条件写在每个 SKILL.md 的 `description` 里）即可加载对应工作流。
+
+**其他 agent（Codex CLI / Cursor 等，手动引用）**：这些工具目前没有和 Claude Code 完全一致的 Skill 自动发现机制，但 SKILL.md 本质就是一份可读的指令文档，手动引用同样可用——直接在对话里说"读 `skills/策略工作流/SKILL.md`，按它的流程带我过一遍"，或者把内容整合进对应工具的自定义指令机制（如 Codex CLI 的 `AGENTS.md`、Cursor 的 `.cursor/rules/`）。
 
 ## 快速开始
 

@@ -79,27 +79,117 @@ ppt-master itself is positioned as a general-purpose aesthetic deck engine — 1
 4. **Five-stage guided alignment in the strategy workflow** — we extended ppt-master's "eight confirmations" human-in-the-loop UX skeleton into a full strategy workflow built for consulting narratives: issue tree / hypothesis tree (MECE), a storyline structure of claims + evidence, and three review quality gates.
 5. **chaideck self-growing flywheel** — continuously tears down real, finished decks into six asset libraries + blind-teardown evolution, so the methodology gets sharper the more it's used. This is a capability ppt-master doesn't have — one we grew on our own.
 
+## How the workflows actually work
+
+PPT Engine isn't a "brief in, pptx out" black box — it's two fail-closed workflows running in relay, with the chaideck flywheel standing between them.
+
+### Strategy workflow: five stages, a gate at every one
+
+```
+A rough brief
+   │
+   ▼
+① Define purpose ──────── set delivery_purpose (presented / read / pre-briefed-then-presented)
+   │                       + argument mode + aesthetic leaning
+   │   Confirms with you item by item — doesn't move on until aligned
+   ▼
+② Issue tree / hypothesis tree (MECE) ──────── break the problem into
+   │                                            mutually exclusive, collectively exhaustive sub-questions
+   │   Confirms the shape of the tree with you
+   ▼
+③ Research ──────── source-traced, sources classified (client-provided / web-researched /
+   │                 industry common knowledge), reports progress issue by issue
+   │   Confirms key findings with you
+   ▼
+④ Storyline ──────── claims + a set of evidence + framing + pacing + Part structure
+   │   Written Part by Part — each finished Part is laid out for you to confirm,
+   │   never the whole thing dumped on you at once
+   ▼
+⑤ Three review quality gates ──────── rule checks + human review; failing any gate
+   │                                   sends it back to that stage — never proceeds while broken
+   ▼
+Finalized storyline → handed off to the production workflow
+```
+
+### Production workflow: finalized outline → natively editable pptx
+
+```
+Finalized storyline (outline)
+   │
+   ▼
+① Build outline ──────── break it down into a per-slide structure
+   ▼
+② Finalize design ──────── pick a point on the style spectrum + spec_lock design contract
+   │                        (palette / typography / icons / images, all locked)
+   │   Confirms the design direction with you
+   ▼
+③ Per-slide production (one slide per round, never batched)
+      template mapping → generate SVG → render preview → hard quality gate
+      fails the gate ──→ sent back to redo that slide, never carries a broken slide forward
+   ▼
+④ Vendor engine export ──────── SVG → DrawingML, zero-rasterization verified
+   ▼
+Delivered: a natively editable .pptx
+```
+
+### chaideck: tear down real decks, let the methodology get smarter on its own
+
+```
+A real, finished deck (investor deck, consulting deck, etc.)
+   │
+   ▼
+Torn down into six asset libraries (page-type cards / expression-technique cards /
+analysis-framework cards / data palettes / real samples / industry knowledge)
+   │
+   ▼
+Blind-teardown evolution ──────── periodically re-tears-down already-archived examples
+   │                                with zero prior framework, compares old vs. new conclusions
+   ▼
+Methodology confidence ledger upgraded ──────── the pattern / phrasing libraries
+                                                  accumulate and sharpen with use
+```
+
+## What's in the built-in libraries
+
+What ships out of the box is a **methodology skeleton** — the structure is built and seeded with starting content; the fact/brand libraries fill in as you use the project.
+
+| Directory | Contents | Size |
+|---|---|---|
+| [`exemplars/页型卡库.json`](exemplars/页型卡库.json) (page-type cards) | Each card records `page_function` / `technique` / `mechanism` (why it works) / `pick_when` / `skip_when` / `rating` | 101 cards |
+| [`exemplars/表达手法卡.json`](exemplars/表达手法卡.json) (expression-technique cards) | Copywriting technique cards, including a six-slot structural-copy paradigm (chapter bridges / chapter summaries / diagnosis wrap-ups / ask closings / closing slides / TOC naming) + anti-patterns (`anti_pattern`) | 142 cards |
+| [`exemplars/分析框架库.json`](exemplars/分析框架库.json) (analysis-framework cards) | Structured encodings of established frameworks like AIPL, Porter's Five Forces, SWOT (`structure` / `pick_when` / `skip_when` / `mechanism`) | 88 frameworks |
+| [`exemplars/数据色板.json`](exemplars/数据色板.json) (data palettes) | Data-visualization color palette families | 11 families |
+| [`specs/PPT方法论/`](specs/PPT方法论) (PPT methodology) | 9 methodology documents (00 overview / 01 what top decks have in common & failure modes / 02 page-technique essentials / 03 scenario narrative structures / 04 example checklist by scenario / 05 quality gates & evaluation / 06 implementing high-stakes hard charts / 07 presented vs. read versions / 08 deck-mode narrative-skeleton system) — each tagged with a confidence level (strong candidate from methodology encoding vs. backed by real samples), so it doesn't pretend to be as certain as conclusions verified against real decks | 9 docs + revision log |
+| [`reinforce/deck_rules/`](reinforce/deck_rules) (rule checks) | 6 rule-check modules: `rules.py` (numbers must carry a source / no bare assertive titles), `client_tone.py` (catches internal working language like "brief P3-4" leaking onto client-facing slides), `storyline.py` (storyline's six forbidden patterns: topic-only / missing so-what / vague wording / too fragmented / no ending / logical jumps), `svg_compat.py` (SVG→PPTX export compatibility blocklist), `visual_review.py` (structured visual-defect checks), `font_embed.py` (font-embedding license checks) | 6 rule modules |
+| [`research_lib/真实样本/`](research_lib/真实样本) (real samples) | Teardowns of real, finished decks (e.g. a page-by-page teardown of Airbnb's 2009 seed deck) + an industry-knowledge-base skeleton | — |
+| [`research_lib/开源拆解/`](research_lib/开源拆解) (open-source teardowns) | ~30 in-depth teardown notes on comparable open-source projects (AI PPT generators, chart libraries, document parsers, etc.) — the raw evidence base behind the methodology research | ~30 notes |
+
 ## Architecture
-
-**Two workflows + one flywheel**:
-
-- **Strategy workflow** — turns a rough brief into a finalized storyline. Five fail-closed stages: define purpose (presented / read / pre-briefed-then-presented) → issue tree / hypothesis tree (MECE) → research (source-traced, sources classified) → storyline (claims + evidence + framing + pacing + Part structure) → three review quality gates.
-- **Production workflow** — turns a finalized outline into a natively editable `.pptx`. Build outline → finalize design (style spectrum + spec_lock design contract) → per-slide (template mapping → generate SVG → render → hard gate, write-render-check one slide at a time) → vendor engine export (zero-rasterization verified) → deliver.
-- **chaideck** — tears down real, finished decks into six asset libraries + blind-teardown evolution, so the pattern library / phrasing library gets more accurate the more it's used.
 
 **Code layout**:
 
 - `engine/` — deterministic engines: chart geometry (`chart_shapes.py`), financial models (DCF/LBO/comparables, `financial_models.py`), the vendored SVG→pptx export engine (`svg2pptx/`), and the image/icon/speaker-notes generation pipeline.
 - `reinforce/` — rule-based checks and state: number traceability / meta-narration / client-facing tone checks (`deck_rules/`), the design-contract lock (`spec_lock.py`), deck workspace and state, the multi-role planning team, retrieval, and the chaideck self-growing flywheel (`evolution/`).
 - `skills/` — the SKILL.md files for the three workflows above, designed to be loaded by coding assistants that support Agent Skills (e.g. Claude Code).
-- `specs/PPT方法论/` — accumulated PPT methodology: what top decks have in common, page-level techniques, scenario narratives, quality-gate standards, presented vs. read versions, etc.
-- `exemplars/` `research_lib/` — the card-library skeletons (page-type cards / expression-technique cards / analysis-framework cards) and methodology research — ready to use out of the box; the fact/brand libraries fill in as you use it.
+- `specs/PPT方法论/` — accumulated PPT methodology (see table above).
+- `exemplars/` `research_lib/` — the card-library skeletons and methodology research (see table above).
 
-## Skills
+## Which agent platforms this works with
 
-- **Strategy workflow**: brief → finalized storyline. Five guided stages: define purpose → issue tree / hypothesis tree → source-traced research → storyline (claims + evidence) → three quality gates.
-- **Production workflow**: finalized outline → natively editable `.pptx`. Per-slide generate → render → hard gate, zero-rasterization export via the vendor engine.
-- **chaideck**: tears down real, finished decks into six asset libraries + blind-teardown evolution — a self-growing methodology flywheel.
+The SKILL.md files under `skills/` follow the Agent Skills format — plain Markdown with a YAML frontmatter — which fundamentally only requires the host agent to do three things: **read/write files, execute commands, and hold a multi-turn conversation**. Any coding agent that meets those three requirements should work in principle, including but not limited to Claude Code, Codex CLI, Cursor, VS Code + Copilot, and Windsurf.
+
+**Claude Code (native support)**: Claude Code automatically discovers project-level `.claude/skills/<name>/SKILL.md`. Symlink (or copy) this repo's three skills into your working project:
+
+```bash
+mkdir -p /path/to/your-project/.claude/skills
+ln -s /path/to/PPT-oss/skills/策略工作流   /path/to/your-project/.claude/skills/策略工作流
+ln -s /path/to/PPT-oss/skills/制作工作流   /path/to/your-project/.claude/skills/制作工作流
+ln -s /path/to/PPT-oss/skills/chaideck    /path/to/your-project/.claude/skills/chaideck
+```
+
+Restart Claude Code, then type `/策略工作流` (or just describe what you need in natural language — the trigger conditions are written into each SKILL.md's `description`) to load the corresponding workflow.
+
+**Other agents (Codex CLI / Cursor / etc., manual reference)**: these tools don't currently have a Skill auto-discovery mechanism identical to Claude Code's, but a SKILL.md is just a readable instruction document — manual reference works just as well. Either tell the agent directly, "read `skills/策略工作流/SKILL.md` and walk me through its process," or fold the content into that tool's own custom-instruction mechanism (e.g. Codex CLI's `AGENTS.md`, Cursor's `.cursor/rules/`).
 
 ## Quick Start
 
