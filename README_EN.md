@@ -39,21 +39,17 @@ Every deck leans on the structured charts generic tools can't do well — 2×2 m
 </tr>
 </table>
 
-## How it differs from similar open-source projects
+## Acknowledgment: iterating on top of ppt-master
 
-The closest project in form is [ppt-master](https://github.com/hugohe3/ppt-master) (34k★) — it also runs inside agents like Claude Code, also exports native DrawingML `.pptx`, and is in fact the vendor source for PPT Engine's production-layer export engine (see licensing below). But the two have different positioning:
+PPT Engine's production workflow didn't reinvent the wheel — it's built by referencing and iterating on [ppt-master](https://github.com/hugohe3/ppt-master) (34k★), the project that first proved "AI generates SVG → translate it into native DrawingML `.pptx`" at real-world scale. PPT Engine's production-layer SVG→pptx export engine is vendored directly from it (MIT, see [engine/ppt_master/LICENSE.ppt-master](engine/ppt_master/LICENSE.ppt-master)). Thank you to Hugo He and the ppt-master community for that work.
 
-| Dimension | ppt-master | PPT Engine |
-|---|---|---|
-| Positioning | General-purpose aesthetic deck engine — 19 visual styles (magazine, data-journalism, Swiss grid, glassmorphism, Memphis…), built for "a deck that looks good" | Focused on consulting-grade / investor-grade high-stakes decks, built for "a deck that holds up under scrutiny" |
-| Narrative gating | Strategist role + eight confirmations (canvas/audience/style/palette — implementation-layer anchors), leaning visual and experiential | Five-stage strategy workflow (define purpose → issue tree / hypothesis tree MECE → source-traced research → storyline with claims + evidence → three review gates), leaning logical and evidentiary |
-| Charts | 71 general-purpose chart templates (waterfall/Gantt/Mekko-precursor etc. already included, used as generic assets) | Same chart family, plus a **deterministic geometry engine** doing the math (not AI eyeballing pixels), plus data-fidelity checks (bridges must close, shares must sum to 100%) |
-| Quality gates | Syntax-level SVG checks (forbidden-element blocklist / spec_lock drift detection) | Syntax-level checks *plus* content-level rule checks (number traceability / meta-narration / client-facing tone) — two-layer fail-closed |
-| Numbers & facts | Soft rule of "diverge but don't invent facts," validation leans formal | Every number must be hard-traceable to a source — a hard gate, not a soft rule |
-| Generation pace | Generates the whole deck in one pass (no pausing to report mid-way) | Confirms with the human round by round, from reading the brief to finalizing each slide — no batching, no one-shot output |
-| Methodology accumulation | No continuous-learning mechanism; styles/chart templates maintained by hand | **chaideck self-growing flywheel**: continuously tears down real-world decks into six asset libraries + blind-teardown evolution, so the methodology gets sharper with use |
+ppt-master itself is positioned as a general-purpose aesthetic deck engine — 19 visual styles (magazine, data-journalism, Swiss grid, glassmorphism, Memphis…) — and it does "a deck that looks good" thoroughly well. PPT Engine builds on top of that engine and pushes further into a narrower, deeper direction: consulting-grade / investor-grade high-stakes decks. A few layers we added:
 
-These two aren't competitors — PPT Engine's production-workflow SVG→DrawingML export layer is vendored directly from ppt-master (MIT, see [engine/ppt_master/LICENSE.ppt-master](engine/ppt_master/LICENSE.ppt-master)). PPT Engine stands on top of that engine and goes deeper into the consulting-grade high-stakes segment: deterministic chart geometry + financial models, a hard number-traceability gate, two-layer quality checks, and a strategy workflow that aligns with the human round by round.
+1. **Deterministic chart geometry engine** — ppt-master's 71 chart templates already cover consulting-grade weapons like waterfall/Gantt/Mekko-precursor charts; we added a data-fidelity layer on top — bridges must mathematically close, shares must sum to 100%. Charts aren't eyeballed by AI, they're computed by code.
+2. **Hard number-traceability gate** — every number on every slide must trace back to a source, or it's hard-blocked. This sits on top of ppt-master's softer "diverge, don't invent facts" rule, adding a stricter, hard-enforced check.
+3. **Two-layer quality gate** — on top of ppt-master's existing SVG syntax-level checks (forbidden-element blocklist / spec_lock drift detection), we added a content-level layer (meta-narration / client-facing tone) — syntax *and* content, both fail-closed.
+4. **Five-stage guided alignment in the strategy workflow** — we extended ppt-master's "eight confirmations" human-in-the-loop UX skeleton into a full strategy workflow built for consulting narratives: issue tree / hypothesis tree (MECE), a storyline structure of claims + evidence, and three review quality gates.
+5. **chaideck self-growing flywheel** — continuously tears down real, finished decks into six asset libraries + blind-teardown evolution, so the methodology gets sharper the more it's used. This is a capability ppt-master doesn't have — one we grew on our own.
 
 ## Architecture
 

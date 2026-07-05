@@ -39,21 +39,17 @@
 </tr>
 </table>
 
-## 和同类开源项目的区别
+## 致谢：站在 ppt-master 肩上做的迭代
 
-同类项目里形态最接近的是 [ppt-master](https://github.com/hugohe3/ppt-master)（34k★，同样跑在 Claude Code 这类 agent 里、同样导出原生 DrawingML pptx，是 PPT Engine 制作层导出引擎的 vendor 来源，见下方许可说明）。但两者定位不同：
+PPT Engine 的制作工作流不是从零造轮子，而是参考、迭代自 [ppt-master](https://github.com/hugohe3/ppt-master)（34k★）——它第一个把"AI 生成 SVG → 翻译成原生 DrawingML pptx"这条路验证到大规模可用，PPT Engine 制作层的 SVG→pptx 导出引擎就直接 vendor 自它（MIT，见 [engine/ppt_master/LICENSE.ppt-master](engine/ppt_master/LICENSE.ppt-master)）。在此向原作者 Hugo He 和 ppt-master 社区表示感谢。
 
-| 维度 | ppt-master | PPT Engine |
-|---|---|---|
-| 定位 | 通用美学 deck 引擎——19 种视觉风格（杂志/数据新闻/瑞士网格/玻璃拟态/孟菲斯…），面向"好看的 deck" | 专攻咨询级/投资人级高 stakes deck，面向"经得起论证的 deck" |
-| 叙事把关 | Strategist 角色 + 八项确认（画布/受众/风格/配色等实现层锚点），偏视觉与体验 | 五阶段策略工作流（判目的 → 议题树/假设树 MECE → 数字溯源调研 → storyline 论点证据 → 三道审查门），偏逻辑与论证 |
-| 图表 | 71 个通用图表模板（waterfall/Gantt/Mekko 雏形等已备齐，当作通用素材使用） | 在同类图表上加**确定性几何引擎**计算（不是 AI 目测画），外加数据保真校验（bridge 必须闭合、占比必须求和 = 100%） |
-| 质检门 | SVG 语法层质检（禁用元素黑名单 / spec_lock 漂移检测） | 语法层质检 + 内容层机检（数字溯源 / 元叙述 / 对客调性），双层 fail-closed |
-| 数字与事实 | "发散但不发明事实"的软规则，校验偏格式 | 每个数字必须硬性可追溯到来源，无源硬拦——不是软规则是硬门 |
-| 生成节奏 | 一次性生成整份 deck（单 pass，中途不许停下汇报） | 一轮一轮跟人确认，从解读 brief 到逐页定稿全程引导对齐，不批处理、不一次性产出 |
-| 方法论沉淀 | 无持续学习机制，风格/图表模板人工维护 | **chaideck 自成长飞轮**：持续拆解真实成品 deck 入六类资产库 + 盲拆进化，方法论随使用越积越准 |
+ppt-master 本身定位是通用美学 deck 引擎（19 种视觉风格：杂志/数据新闻/瑞士网格/玻璃拟态/孟菲斯…），把"好看的 deck"这件事做得很完整。PPT Engine 站在这套引擎之上，往"咨询级/投资人级高 stakes deck"这个更窄但更深的方向做了几层进化：
 
-两者不是竞品关系——PPT Engine 制作工作流的 SVG→DrawingML 导出层直接 vendor 自 ppt-master（MIT，见 [engine/ppt_master/LICENSE.ppt-master](engine/ppt_master/LICENSE.ppt-master)），PPT Engine 是站在这套引擎之上，往"咨询级高 stakes 段"继续做深：确定性图表几何 + 财务模型、数字溯源硬门、双层质检、以及一轮一轮对齐的策略工作流。
+1. **确定性图表几何引擎**：ppt-master 的 71 个图表模板已经备齐 waterfall/Gantt/Mekko 雏形等咨询级武器，我们在此基础上加了一层数据保真校验——bridge 必须数学闭合、占比必须求和 = 100%，图表不是 AI 目测画出来的，是代码算出来的。
+2. **数字溯源硬门**：每页每个数字都要求能追溯到来源，无源硬拦——这是在 ppt-master "发散但不发明事实"的软规则之上，加了一道更严格的硬性质检。
+3. **双层质检门**：在 ppt-master 已有的 SVG 语法层质检（禁用元素黑名单 / spec_lock 漂移检测）之外，加了一层内容层机检（元叙述 / 对客调性等），语法 + 内容两道 fail-closed。
+4. **策略工作流的五阶段引导对齐**：把 ppt-master "八项确认"这套人机协商的 UX 骨架，延展成一整套面向咨询叙事的策略工作流——议题树 / 假设树（MECE）、storyline 论点证据结构、三道审查质量门。
+5. **chaideck 自成长飞轮**：持续拆解真实成品 deck 入六类资产库 + 盲拆进化，让方法论随使用越积越准——这是 ppt-master 没有的、我们新长出来的能力。
 
 ## 架构
 
