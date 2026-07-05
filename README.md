@@ -142,7 +142,17 @@ storyline 定稿（大纲）
 
 `skills/` 下的 SKILL.md 遵循纯 Markdown + YAML frontmatter 的 Agent Skills 格式，本质只要求宿主 agent 能做三件事：**读写文件、执行命令、支持多轮对话**。满足这三条的编码 agent 原则上都能跑，包括但不限于 Claude Code、Codex CLI、Cursor、VS Code + Copilot、Windsurf。
 
-**Claude Code（原生支持）**：Claude Code 会自动识别项目级 `.claude/skills/<name>/SKILL.md`。把本仓库的三个 skill 链接（或复制）进你的工作项目即可：
+**Claude Code（原生支持 · 一条命令装好，推荐）**：本仓库自带 `.claude-plugin/marketplace.json`，两条命令装完，Python 运行环境（`engine`/`reinforce`）会在下次会话启动时被 `SessionStart` 钩子自动装进插件专属的虚拟环境，不用自己 `pip install`：
+
+```
+/plugin marketplace add biaojunqin-coder/Opustelic-ppt-engine
+/plugin install ppt-engine@ppt-engine
+```
+
+装完输入 `/ppt-engine:策略工作流`（或直接用自然语言描述需求，触发条件写在每个 SKILL.md 的 `description` 里）即可加载对应工作流；三个 skill 都带插件名前缀（`ppt-engine:制作工作流`、`ppt-engine:chaideck`），不会和你本机其它同名 skill 冲突。
+
+<details>
+<summary>不想装插件、只想手动接入某个项目？</summary>
 
 ```bash
 mkdir -p /path/to/your-project/.claude/skills
@@ -151,7 +161,8 @@ ln -s /path/to/PPT-oss/skills/制作工作流   /path/to/your-project/.claude/sk
 ln -s /path/to/PPT-oss/skills/chaideck    /path/to/your-project/.claude/skills/chaideck
 ```
 
-重启 Claude Code 后，输入 `/策略工作流`（或直接用自然语言描述需求，触发条件写在每个 SKILL.md 的 `description` 里）即可加载对应工作流。
+这种方式需要自己 `pip install -e .` 装好 Python 环境，重启 Claude Code 后输入 `/策略工作流` 即可加载。
+</details>
 
 **其他 agent（Codex CLI / Cursor 等，手动引用）**：这些工具目前没有和 Claude Code 完全一致的 Skill 自动发现机制，但 SKILL.md 本质就是一份可读的指令文档，手动引用同样可用——直接在对话里说"读 `skills/策略工作流/SKILL.md`，按它的流程带我过一遍"，或者把内容整合进对应工具的自定义指令机制（如 Codex CLI 的 `AGENTS.md`、Cursor 的 `.cursor/rules/`）。
 

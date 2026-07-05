@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "ppt-engine",
+  "owner": {
+    "name": "PPT Engine contributors"
+  },
+  "description": "PPT Engine —— 策略工作流 + 制作工作流 + chaideck，产出咨询级/投资人级原生可编辑 .pptx",
+  "plugins": [
+    {
+      "name": "ppt-engine",
+      "source": "./",
+      "description": "策略工作流 / 制作工作流 / chaideck 三个 skill + 确定性引擎 + 规则机检；安装时自动配好 Python 运行环境，不用手动 pip install",
+      "hooks": {
+        "SessionStart": [
+          {
+            "hooks": [
+              {
+                "type": "command",
+                "command": "test -x \"${CLAUDE_PLUGIN_DATA}/venv/bin/python3\" || python3 -m venv \"${CLAUDE_PLUGIN_DATA}/venv\"; diff -q \"${CLAUDE_PLUGIN_ROOT}/pyproject.toml\" \"${CLAUDE_PLUGIN_DATA}/.installed_pyproject.toml\" >/dev/null 2>&1 || (\"${CLAUDE_PLUGIN_DATA}/venv/bin/pip\" install -q -e \"${CLAUDE_PLUGIN_ROOT}\" && cp \"${CLAUDE_PLUGIN_ROOT}/pyproject.toml\" \"${CLAUDE_PLUGIN_DATA}/.installed_pyproject.toml\") || rm -f \"${CLAUDE_PLUGIN_DATA}/.installed_pyproject.toml\""
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -5,6 +5,8 @@ description: PPT Engine 策略层——把模糊 brief 解读成咨询级/投资
 
 # 策略工作流 · SKILL（五阶段做实版）
 
+> **环境**：本 skill 若以 Claude Code 插件方式安装，`engine`/`reinforce` 两个包已由 `SessionStart` 钩子装进 `${CLAUDE_PLUGIN_DATA}/venv`——凡下文让你跑 Python / 调 `engine.`/`reinforce.` 模块的地方，一律用 `${CLAUDE_PLUGIN_DATA}/venv/bin/python3`，不要用系统 `python3`。若这两个变量没被展开（说明是直接 clone 仓库跑，不是插件安装），退回用仓库自带的 `.venv/bin/python3`。
+
 > **定位**：策略层 = PPT Engine 的护城河（开源界 99% 空白）。本 skill 只搭「storyline 定稿（叙事 + 逻辑 + 质量门）」，**不出 pptx**（那是制作工作流）。
 > **铁律**：分阶段 fail-closed——每阶段出关闸，闸内任一项不过就停在本阶段返工到全过，**绝不带病推进**（对照 Novel xieshu 节拍闸）。
 > **可信度**：方法论 00–07（07 双模式**真样本背书**·D19 FR3 起扩展第三态「预读讲解版」[用户真实场景背书]·余为强候选）。生产中边用边验，按 [修订日志](../../specs/PPT方法论/_修订日志.md) 升格。

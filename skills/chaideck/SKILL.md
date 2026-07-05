@@ -5,6 +5,8 @@ description: PPT「拆 deck 入库 + 盲拆进化」技能——把真实成品 
 
 # /chaideck —— 拆 deck 入库 + 盲拆进化 · 真实 deck → 范本库 + 护城河升级
 
+> **环境**：本 skill 若以 Claude Code 插件方式安装，`engine`/`reinforce` 两个包已由 `SessionStart` 钩子装进 `${CLAUDE_PLUGIN_DATA}/venv`——凡下文让你跑 Python / 调 `engine.`/`reinforce.` 模块的地方，一律用 `${CLAUDE_PLUGIN_DATA}/venv/bin/python3`，不要用系统 `python3`。若这两个变量没被展开（说明是直接 clone 仓库跑，不是插件安装），退回用仓库自带的 `.venv/bin/python3`。
+
 > 复用 Novel `~/.claude/skills/chaishu/SKILL.md` 的「拆+审+入库+进化」骨架，只换料层（文本→视觉）。设计见 `specs/拆deck-skill-设计.md`、检索本体见 `specs/拆deck-检索本体设计.md`。
 >
 > **2026-07-01 四轨扩容（yanjiu研究驱动·五档结论落地）**：此前只拆"页型手法卡"(视觉/布局层)，用户指出还该拆"思路"(论证怎么搭的)和"表达"(文案怎么写的)。研究发现：`05_质量门与评估.md` 的"三道审查门"(Action Title/Storyline/Slide Content)其实已经是现成的思路层量尺，只是此前只当**生产检查清单**用、从没**反过来当抽取工具**套在真实 deck 上——文档和实践脱节，不是从零缺失。研究详情见 `specs/PPT方法论/_研究驱动评估-思路表达维度.md`。

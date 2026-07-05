@@ -149,7 +149,17 @@ What ships out of the box is a **methodology skeleton** — the structure is bui
 
 The SKILL.md files under `skills/` follow the Agent Skills format — plain Markdown with a YAML frontmatter — which fundamentally only requires the host agent to do three things: **read/write files, execute commands, and hold a multi-turn conversation**. Any coding agent that meets those three requirements should work in principle, including but not limited to Claude Code, Codex CLI, Cursor, VS Code + Copilot, and Windsurf.
 
-**Claude Code (native support)**: Claude Code automatically discovers project-level `.claude/skills/<name>/SKILL.md`. Symlink (or copy) this repo's three skills into your working project:
+**Claude Code (native support — one command, recommended)**: this repo ships its own `.claude-plugin/marketplace.json`. Two commands and you're done — the Python runtime (`engine`/`reinforce`) gets installed automatically into a plugin-scoped virtual environment by a `SessionStart` hook the next time a session starts, no manual `pip install` needed:
+
+```
+/plugin marketplace add biaojunqin-coder/Opustelic-ppt-engine
+/plugin install ppt-engine@ppt-engine
+```
+
+Once installed, type `/ppt-engine:策略工作流` (or just describe what you need in natural language — the trigger conditions are written into each SKILL.md's `description`) to load the corresponding workflow. All three skills carry the plugin-name prefix (`ppt-engine:制作工作流`, `ppt-engine:chaideck`), so they won't collide with any same-named skill you already have installed.
+
+<details>
+<summary>Prefer not to install a plugin — just wire it into one project by hand?</summary>
 
 ```bash
 mkdir -p /path/to/your-project/.claude/skills
@@ -158,7 +168,8 @@ ln -s /path/to/PPT-oss/skills/制作工作流   /path/to/your-project/.claude/sk
 ln -s /path/to/PPT-oss/skills/chaideck    /path/to/your-project/.claude/skills/chaideck
 ```
 
-Restart Claude Code, then type `/策略工作流` (or just describe what you need in natural language — the trigger conditions are written into each SKILL.md's `description`) to load the corresponding workflow.
+This route requires you to `pip install -e .` the Python environment yourself. Restart Claude Code, then type `/策略工作流` to load it.
+</details>
 
 **Other agents (Codex CLI / Cursor / etc., manual reference)**: these tools don't currently have a Skill auto-discovery mechanism identical to Claude Code's, but a SKILL.md is just a readable instruction document — manual reference works just as well. Either tell the agent directly, "read `skills/策略工作流/SKILL.md` and walk me through its process," or fold the content into that tool's own custom-instruction mechanism (e.g. Codex CLI's `AGENTS.md`, Cursor's `.cursor/rules/`).
 

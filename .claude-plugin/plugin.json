@@ -1,0 +1,12 @@
+{
+  "name": "ppt-engine",
+  "description": "把模糊 brief 做成咨询级/投资人级 deck 的引擎：策略工作流 + 制作工作流 + chaideck 自成长飞轮，导出原生可编辑 .pptx",
+  "version": "0.1.0",
+  "author": {
+    "name": "PPT Engine contributors"
+  },
+  "homepage": "https://github.com/biaojunqin-coder/Opustelic-ppt-engine",
+  "repository": "https://github.com/biaojunqin-coder/Opustelic-ppt-engine",
+  "license": "Apache-2.0",
+  "keywords": ["pptx", "powerpoint", "presentation", "consulting-deck", "investor-deck"]
+}
