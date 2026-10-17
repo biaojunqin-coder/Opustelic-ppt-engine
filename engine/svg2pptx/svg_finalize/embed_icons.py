@@ -61,7 +61,8 @@ configure_utf8_stdio()
 
 
 # Default icon directory
-DEFAULT_ICONS_DIR = Path(__file__).parent.parent.parent / 'templates' / 'icons'
+# vendor 布局：图标库在 engine/ppt_master/templates/icons（原 ppt-master 路径在本仓库不存在）
+DEFAULT_ICONS_DIR = Path(__file__).resolve().parents[2] / 'ppt_master' / 'templates' / 'icons'
 
 # Icon base size per library
 ICON_BASE_SIZES = {

@@ -13,6 +13,9 @@ dependencies = [
     # PDF 解析直接 ImportError，故列为硬依赖。
     "pymupdf",
     "python-docx",
+    # vendor image_search.py 顶层 import requests（image_pipeline web 检索路径）·漏声明时新 clone
+    # 装完 tests/test_image_cn_query.py 直接 ImportError。
+    "requests",
 ]
 
 [project.optional-dependencies]

@@ -875,7 +875,9 @@ def check_icons_realized(svg_texts: list[str], spec_lock: dict | None) -> list[d
     inventory = icons.get("inventory") or []
     if not inventory:
         return []
-    if any("data-icon" in (t or "") for t in svg_texts):
+    # 已经 finalize 嵌入过的 SVG 没有 data-icon 了，只剩 embed_icons 留的 "<!-- icon: 名 -->" 标记
+    # （UTO deck 实测：先嵌入再交 build_deck 被误报"零占位"），两种形态都算兑现。
+    if any("data-icon" in (t or "") or "<!-- icon:" in (t or "") for t in svg_texts):
         return []
     return [{"rule": "icons_not_realized", "sev": "warn",
              "note": f"spec_lock 声明图标清单 {len(inventory)} 个（library={icons.get('library')}），"

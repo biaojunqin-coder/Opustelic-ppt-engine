@@ -50,6 +50,8 @@ class ConvertContext:
     # Default-on flag: merge mergeable paragraph blocks into one editable
     # text frame with multiple <a:p>. Disable it for strict line fidelity.
     merge_paragraphs: bool = True
+    # 保留 SVG 字体原名（不走 FONT_FALLBACK_WIN 的 Windows 映射），见 parse_font_family。
+    preserve_fonts: bool = False
     # Native PPTX image optimization. Keeps generated decks compact by
     # downsampling oversized raster assets to their rendered size.
     image_optimize: bool = True
@@ -165,6 +167,7 @@ class ConvertContext:
             # anim_targets is intentionally a fresh list on the child;
             # only the root-level context's list is read by the builder.
             merge_paragraphs=self.merge_paragraphs,
+            preserve_fonts=self.preserve_fonts,
             image_optimize=self.image_optimize,
             image_max_dimension=self.image_max_dimension,
             image_sizing=self.image_sizing,

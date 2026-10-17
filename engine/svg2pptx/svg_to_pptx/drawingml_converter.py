@@ -431,6 +431,7 @@ def convert_svg_to_slide_shapes(
     image_scale: float = 2.0,
     image_quality: int = 85,
     trace_out: list[dict[str, Any]] | None = None,
+    preserve_fonts: bool = False,
 ) -> tuple[str, dict[str, bytes], list[dict[str, str]], list]:
     """Convert an SVG file to a complete DrawingML slide XML.
 
@@ -449,6 +450,7 @@ def convert_svg_to_slide_shapes(
         image_scale: Target image pixels per SVG display pixel.
         image_quality: JPEG quality used for opaque optimized rasters.
         trace_out: Optional list populated with one per-slide trace dictionary.
+        preserve_fonts: 保留 SVG 字体原名，不做 macOS/Linux→Windows 字体映射。
 
     Returns:
         (slide_xml, media_files, rel_entries, anim_targets) where:
@@ -469,7 +471,10 @@ def convert_svg_to_slide_shapes(
     # both ignore data-icon, so without expansion icons would silently drop.
     # The on-disk finalize_svg pipeline does the same expansion for svg_final/;
     # running this here makes the two pipelines behaviourally aligned.
-    icons_dir = Path(__file__).resolve().parent.parent.parent / 'templates' / 'icons'
+    # 2026-10-18 UTO 冬季营销 deck 实测揪出（vendor 代码最小修）：原路径按 ppt-master 的
+    # scripts/ 布局算出 engine/templates/icons，vendor 进来后图标库在 engine/ppt_master/templates/icons，
+    # 目录不存在 → 展开被静默跳过 → <use> 留到下方 unsupported 检查直接抛 SvgNativeConversionError。
+    icons_dir = Path(__file__).resolve().parents[2] / 'ppt_master' / 'templates' / 'icons'
     if icons_dir.exists():
         from .use_expander import expand_use_data_icons
         expanded = expand_use_data_icons(root, icons_dir)
@@ -510,6 +515,7 @@ def convert_svg_to_slide_shapes(
         slide_num=slide_num,
         svg_dir=Path(svg_path).parent,
         merge_paragraphs=merge_paragraphs,
+        preserve_fonts=preserve_fonts,
         image_optimize=image_optimize,
         image_max_dimension=image_max_dimension,
         image_sizing=image_sizing,

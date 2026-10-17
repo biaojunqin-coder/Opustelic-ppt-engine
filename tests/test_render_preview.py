@@ -74,3 +74,27 @@ def test_svg_renderer_reuses_browser_session_across_pages(tmp_path):
         p1 = r.render(CJK_SVG, tmp_path / "a.png")
         p2 = r.render(CJK_SVG, tmp_path / "b.png")
     assert p1.exists() and p2.exists()
+
+
+def test_launch_falls_back_to_local_chrome():
+    """没下载 Playwright Chromium 时回退本机 Chrome（channel="chrome"）；自带内核在就不回退。"""
+    from engine.render_preview import _launch_chromium
+
+    class FakeChromium:
+        def __init__(self, bundled_ok):
+            self.bundled_ok, self.calls = bundled_ok, []
+
+        def launch(self, **kw):
+            self.calls.append(kw)
+            if not kw and not self.bundled_ok:
+                raise RuntimeError("Executable doesn't exist")
+            return "browser"
+
+    class FakePw:
+        def __init__(self, bundled_ok):
+            self.chromium = FakeChromium(bundled_ok)
+
+    pw = FakePw(bundled_ok=False)
+    assert _launch_chromium(pw) == "browser" and pw.chromium.calls == [{}, {"channel": "chrome"}]
+    pw = FakePw(bundled_ok=True)
+    assert _launch_chromium(pw) == "browser" and pw.chromium.calls == [{}]

@@ -448,6 +448,8 @@ def test_icons_realized_warns_when_declared_but_absent():
     # 任一页有占位即算兑现；未声明 icons 不查
     assert check_icons_realized(['<g data-icon="abacus"/>'], spec) == []
     assert check_icons_realized(svgs, {"icons": {}}) == []
+    # 已 finalize 嵌入（data-icon 换成 <!-- icon: 名 --> + <g>）同样算兑现，不误报
+    assert check_icons_realized(['<!-- icon: tabler-outline/abacus -->\n<g><path d="M0 0"/></g>'], spec) == []
 
 
 def test_images_realized_reports_missing(tmp_path):

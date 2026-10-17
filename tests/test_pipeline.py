@@ -502,3 +502,33 @@ def test_assets_used_or_reviewed_or_absent_pass(tmp_path):
     # ③ 收集点空（只有引导说明）→ 不拦
     ws3, o3, spec3 = _d27_minimal(tmp_path / "c", {"kind": "neutral"})
     assert build_deck(o3, _d27_provider, tmp_path / "out3", workspace=ws3, spec_lock=spec3)["pptx_path"]
+
+
+def test_build_deck_exports_use_data_icon_placeholder(tmp_path):
+    """UTO deck 实测：页面带 <use data-icon> 时导出抛 SvgNativeConversionError（转换器图标库路径
+    按 ppt-master 原布局算，vendor 后不存在，内存展开被静默跳过）。修后占位展开成原生形状。"""
+    def provider(ctx):
+        return ('<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">'
+                '<use data-icon="tabler-outline/abacus" x="100" y="100" width="48" height="48" fill="#0076A8"/>'
+                f'<text x="200" y="135" font-family="Arial" font-size="28">{ctx["page"]["claim"]}</text>'
+                '<text x="100" y="300" font-size="16">数据来源：公司财报 2024</text></svg>')
+    res = build_deck(_outline_2p(), provider, tmp_path)
+    with zipfile.ZipFile(res["pptx_path"]) as z:
+        xml1 = z.read("ppt/slides/slide1.xml").decode("utf-8")
+    assert "<p:pic>" not in xml1 and xml1.count("<p:sp>") >= 3   # 图标成了原生形状，非栅格
+
+
+def test_build_deck_preserve_fonts(tmp_path):
+    def provider(ctx):
+        return ('<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">'
+                f'<text x="100" y="135" font-family="Noto Sans SC" font-size="28">{ctx["page"]["claim"]}</text>'
+                '<text x="100" y="300" font-family="Noto Sans SC" font-size="16">数据来源：公司财报 2024</text></svg>')
+
+    def typefaces(res):
+        with zipfile.ZipFile(res["pptx_path"]) as z:
+            return z.read("ppt/slides/slide1.xml").decode("utf-8")
+
+    default = typefaces(build_deck(_outline_2p(), provider, tmp_path / "a"))
+    assert 'typeface="Microsoft YaHei"' in default and 'typeface="Noto Sans SC"' not in default  # 默认行为不变
+    kept = typefaces(build_deck(_outline_2p(), provider, tmp_path / "b", preserve_fonts=True))
+    assert 'typeface="Noto Sans SC"' in kept and 'typeface="Microsoft YaHei"' not in kept

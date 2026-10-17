@@ -197,6 +197,15 @@ def test_check_source_client_provided_numbers_exempt():
     assert check_source(text + "，行业增速 23.6%", exempt_terms=["41", "49"]) != []  # 混入外部数字仍拦
 
 
+def test_check_source_exempt_terms_longest_first():
+    """UTO deck 实测：短词先删会拆残长词，残留"2026"被误判无源——不论传入顺序都按长词优先挖。"""
+    from reinforce.deck_rules.rules import check_source
+    text = "UTO 2026 冬季整合营销方案"
+    assert check_source(text, exempt_terms=["UTO", "UTO 2026 冬季整合营销方案"]) == []
+    assert check_source(text, exempt_terms=["UTO 2026 冬季整合营销方案", "UTO"]) == []
+    assert check_source(text + "，渗透率 35%", exempt_terms=["UTO", "UTO 2026 冬季整合营销方案"]) != []
+
+
 # ── D19 FR1.2 文案门分级（标签冒号 error·自然句不拦）──────────────────
 def test_field_label_colon_is_error_natural_sentence_not():
     from reinforce.deck_rules.client_tone import check_client_facing_tone

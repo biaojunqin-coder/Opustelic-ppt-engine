@@ -631,6 +631,7 @@ def create_pptx_with_native_svg(
     image_quality: int = 85,
     conversion_trace_path: Path | None = None,
     doc_metadata: dict[str, Any] | None = None,
+    preserve_fonts: bool = False,
 ) -> bool:
     """Create a PPTX file with native SVG.
 
@@ -810,6 +811,7 @@ def create_pptx_with_native_svg(
                             image_scale=image_scale,
                             image_quality=image_quality,
                             trace_out=conversion_trace,
+                            preserve_fonts=preserve_fonts,
                         )
                     )
                     slide_transition, slide_transition_duration, slide_auto_advance = (

@@ -107,3 +107,31 @@ def test_rotate_pivot_compensation_honours_ancestor_scale():
     expect = 100 * 2 * EMU_PER_PX  # pivot(100,100)×祖先scale(2) = slide 上 200px
     assert abs(pivot_x_used - expect) <= 3 * EMU_PER_PX  # 旧版会算成 100px·差一半
     assert abs(pivot_y_used - expect) <= 3 * EMU_PER_PX
+
+
+def test_cjk_nowrap_textbox_widened_anchor_kept():
+    """UTO deck 实测：wrap="none" 框按估宽对思源黑体粗体偏窄，LibreOffice/WPS 在框宽处强行折行。
+    含 CJK 的单行框 ×1.15+6px；居中框中心、右对齐框右缘不动（文字落点不变）；纯拉丁不加。"""
+    import re
+    from xml.etree import ElementTree as ET
+    from engine.svg2pptx.svg_to_pptx.drawingml_context import ConvertContext
+    from engine.svg2pptx.svg_to_pptx.drawingml_elements import convert_text
+    from engine.svg2pptx.svg_to_pptx.drawingml_utils import EMU_PER_PX, estimate_text_width
+
+    def box(text, anchor):
+        elem = ET.fromstring(f'<text xmlns="http://www.w3.org/2000/svg" x="640" y="360" font-size="40" '
+                             f'font-weight="700" text-anchor="{anchor}">{text}</text>')
+        xml = convert_text(elem, ConvertContext()).xml
+        x = int(re.search(r'<a:off x="(-?\d+)"', xml).group(1)) / EMU_PER_PX
+        w = int(re.search(r'<a:ext cx="(\d+)"', xml).group(1)) / EMU_PER_PX
+        return x, w
+
+    cjk = "冬季整合营销方案"
+    est = estimate_text_width(cjk, 40, "700")
+    x, w = box(cjk, "middle")
+    assert w >= est * 1.15 + 6
+    assert abs((x + w / 2) - 640) <= 1          # 居中框：中心仍在锚点
+    x, w = box(cjk, "end")
+    assert abs((x + w) - 640) <= 3              # 右对齐框：右缘仍在锚点（+padding）
+    x, w = box("Winter Campaign", "start")
+    assert w < estimate_text_width("Winter Campaign", 40, "700") * 1.15   # 纯拉丁不加余量

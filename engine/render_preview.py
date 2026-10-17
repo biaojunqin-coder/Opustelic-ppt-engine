@@ -32,6 +32,15 @@ def _wrap_html(svg: str, width: int, height: int) -> str:
     )
 
 
+def _launch_chromium(pw):
+    """先用 Playwright 自带 Chromium；没下载（`playwright install chromium` 几百MB）时回退本机
+    Google Chrome（channel="chrome"）。两个都起不来才抛（第二次的报错原样上抛）。"""
+    try:
+        return pw.chromium.launch()
+    except Exception:
+        return pw.chromium.launch(channel="chrome")
+
+
 class SvgRenderer:
     """复用同一个浏览器会话渲染多页（避免每页重启浏览器进程·同 ppt-master render_pages() 的优化）。
 
@@ -60,12 +69,12 @@ class SvgRenderer:
             ) from e
         self._pw = sync_playwright().start()
         try:
-            self._browser = self._pw.chromium.launch()
+            self._browser = _launch_chromium(self._pw)
         except Exception as e:
             self._pw.stop()
             self._pw = None
             raise RuntimeError(
-                "playwright 包已装，但 Chromium 内核启动失败（大概率未下载）。安装：\n"
+                "playwright 包已装，但 Chromium 内核启动失败（大概率未下载，且本机 Chrome 也起不来）。安装：\n"
                 "  .venv/bin/playwright install chromium\n"
                 f"原始报错：{type(e).__name__}: {e}"
             ) from e
@@ -108,8 +117,7 @@ def preview_available() -> bool:
         return False
     try:
         with sync_playwright() as p:
-            browser = p.chromium.launch()
-            browser.close()
+            _launch_chromium(p).close()
         return True
     except Exception:
         return False

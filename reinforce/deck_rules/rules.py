@@ -72,7 +72,9 @@ def check_source(text: str, exempt_terms=()) -> list[dict]:
     该拦的编造数据），比现在偶尔多提醒一次更不可接受——只排除"页码"这种100%不可能是证据数字的模式。
     """
     scan_text = _PAGE_LABEL_RE.sub("", text)
-    for term in exempt_terms or ():
+    # 长词先挖（UTO deck 实测）：短词"UTO"先删会把"UTO 2026 冬季整合营销方案"拆残，长词再也匹配不上，
+    # 残留的"2026"被判无源 error。
+    for term in sorted(exempt_terms or (), key=lambda s: len(str(s).strip()), reverse=True):
         t = str(term).strip()
         if t:
             # 2026-07-03 saopan批②揪出：此前 scan_text.replace(t,"") 是全文子串删除——

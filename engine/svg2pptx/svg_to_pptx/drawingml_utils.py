@@ -392,11 +392,13 @@ def get_effective_filter_id(elem: ET.Element, ctx: ConvertContext) -> str | None
 # Font parsing
 # ---------------------------------------------------------------------------
 
-def parse_font_family(font_family_str: str) -> dict[str, str]:
+def parse_font_family(font_family_str: str, preserve: bool = False) -> dict[str, str]:
     """Parse CSS font-family into latin/ea typeface names.
 
     Prioritizes Windows-available fonts since PPTX is primarily opened on
     Windows. macOS/Linux-only fonts are mapped via FONT_FALLBACK_WIN.
+    preserve=True 跳过 FONT_FALLBACK_WIN 映射、保留 SVG 里写的字体原名（品牌字体如思源黑体
+    Noto Sans SC 不被换成微软雅黑；目标机没装该字体时由 PowerPoint 自行回退）。
     """
     if not font_family_str:
         return {'latin': 'Segoe UI', 'ea': 'Microsoft YaHei'}
@@ -413,7 +415,7 @@ def parse_font_family(font_family_str: str) -> dict[str, str]:
             latin_font = latin_font or resolved
             continue
 
-        win_font = FONT_FALLBACK_WIN.get(font, font)
+        win_font = font if preserve else FONT_FALLBACK_WIN.get(font, font)
         if font in EA_FONTS:
             ea_font = ea_font or win_font
         else:

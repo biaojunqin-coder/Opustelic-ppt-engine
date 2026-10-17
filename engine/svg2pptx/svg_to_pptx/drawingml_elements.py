@@ -942,6 +942,11 @@ _TEXT_WIDTH_HEADROOM_BASE = 1.06
 _TEXT_WIDTH_HEADROOM_CAPS = 1.12
 _SERIF_TEXT_WIDTH_HEADROOM_BASE = 1.12
 _SERIF_TEXT_WIDTH_HEADROOM_CAPS = 1.36
+# 含 CJK 的单行 wrap="none" 框再加一层余量（2026-10-18 UTO deck 实测）：上面的估宽对思源黑体
+# 粗体偏窄，PowerPoint 不折行，但 LibreOffice/WPS 会在框宽处强行折行。框宽 ×1.15 + 6px；
+# box_x 按 text-anchor 由 text_width 推算，居中/右对齐框随之左移，文字落点不变。
+_CJK_NOWRAP_WIDTH_PAD = 1.15
+_CJK_NOWRAP_WIDTH_EXTRA_PX = 6.0
 
 
 def _normalize_text(text: str, *, preserve_space: bool = False) -> str:
@@ -1260,7 +1265,7 @@ def _build_run_xml(
     strike_attr = ' strike="sngStrike"' if 'line-through' in text_dec else ''
     spc_attr = _letter_spacing_to_drawingml_spc(letter_spacing_px)
 
-    fonts = parse_font_family(ff) if ff else default_fonts
+    fonts = parse_font_family(ff, bool(ctx and ctx.preserve_fonts)) if ff else default_fonts
     run_fonts = resolve_text_run_fonts(text, fonts)
     lang = detect_text_lang(text)
 
@@ -1304,7 +1309,7 @@ def convert_text(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
         scale_x=ctx.scale_x or 1.0,
     )
 
-    fonts = parse_font_family(font_family_str)
+    fonts = parse_font_family(font_family_str, ctx.preserve_fonts)
 
     parent_attrs: dict[str, Any] = {
         'fill': fill_color,
@@ -1411,6 +1416,8 @@ def convert_text(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
         )
     else:
         text_width = _estimate_text_runs_width(runs)
+        if any(is_cjk_char(ch) for ch in full_text):
+            text_width = text_width * _CJK_NOWRAP_WIDTH_PAD + _CJK_NOWRAP_WIDTH_EXTRA_PX
         text_height = font_size * 1.5
     padding = _textbox_padding(font_size)
 

@@ -50,7 +50,7 @@ def _safe_filename(name: str) -> str:
 def build_deck(outline: dict, svg_provider: SvgProvider, out_dir, *,
                strict: bool = False, notes_map: dict | None = None, spec_lock: dict | None = None,
                render_previews: bool = False, workspace: dict | None = None,
-               resume: bool = False) -> dict:
+               resume: bool = False, preserve_fonts: bool = False) -> dict:
     """跑完整 deck：校验大纲 → 逐页(拼 prompt → 生成 SVG → 硬门) → 导出原生可编辑 pptx。
 
     svg_provider(ctx)->svg：真实 = Claude 逐页手写（ppt-master 验证过的纪律：禁脚本批量数据驱动模板生成，
@@ -84,6 +84,8 @@ def build_deck(outline: dict, svg_provider: SvgProvider, out_dir, *,
     drafted 供人审返工，不升 done）。resume=True 时：status 已是 gated/done 且 out_dir 下对应
     SVG 还在的页，跳过 svg_provider（省的是 LLM 手写这步贵的），**硬门照样重跑**——规则可能已
     升级，上次过门不代表这次过（防假绿），重检没过如实计入 all_passed/strict。
+    preserve_fonts=True：导出时保留 SVG 字体原名（如品牌字体 Noto Sans SC 思源黑体），不走 vendor
+    转换器默认的 macOS/Linux→Windows 映射（Noto Sans SC→Microsoft YaHei）；缺省 False 行为不变。
     返回 {pptx_path, pages:[{n, gate, svg_path, preview_path, resumed}], all_passed, deck_warnings}。
     """
     v = validate_outline(outline)
@@ -291,7 +293,7 @@ def build_deck(outline: dict, svg_provider: SvgProvider, out_dir, *,
         pptx_path = Path(ws["pptx"])
     else:
         pptx_path = out_dir / f"{_safe_filename(outline['title'])}.pptx"
-    if not export_deck(svg_paths, pptx_path):        # vendor 引擎：原生可编辑导出
+    if not export_deck(svg_paths, pptx_path, preserve_fonts=preserve_fonts):  # vendor 引擎：原生可编辑导出
         raise RuntimeError("vendor 引擎导出失败")
     if notes_map:                                     # 演讲者备注（思路讲解·演讲版「口头补」的脚本）
         _attach_notes(pptx_path, [notes_map.get(pr["n"], "") for pr in page_results])

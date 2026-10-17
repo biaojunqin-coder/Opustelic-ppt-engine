@@ -9,3 +9,4 @@ python-pptx
 pymupdf
 edge-tts  # 免费神经 TTS(无 key·语音讲解用)
 python-docx  # brief 解析(.docx)
+requests  # vendor image_search.py（图像 web 检索）

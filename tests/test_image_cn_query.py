@@ -210,3 +210,11 @@ def test_openverse_search_anonymous_without_credentials(_clean_openverse, monkey
     monkeypatch.setattr("requests.get", fake_get)
     provider_openverse.search(ImageSearchRequest(query="tulou"), license_tier_filter="all")
     assert seen_headers and all("Authorization" not in h for h in seen_headers)
+
+
+def test_requests_declared_as_dependency():
+    """vendor image_search.py 顶层 import requests——pyproject 漏声明时新 clone 装完本文件直接 ImportError。"""
+    import tomllib
+    from pathlib import Path
+    deps = tomllib.loads((Path(__file__).parents[1] / "pyproject.toml").read_text(encoding="utf-8"))
+    assert "requests" in deps["project"]["dependencies"]
